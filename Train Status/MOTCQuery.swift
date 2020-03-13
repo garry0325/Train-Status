@@ -107,23 +107,26 @@ class MOTCQuery {
 							let formatter2 = DateFormatter()
 							formatter2.dateFormat = "yyyy-MM-dd"
 							formatter2.timeZone = TimeZone(abbreviation: "UTC+8")
-
+							
 							let departureTime = formatter.date(from: String(format: "%@ %@", formatter2.string(from: Date()), departure))
-
+							
 							print(String(format: "%@%@\t往%@\t%@\t%@\t%@\t延誤%d分", trainType, trainNumber, endingStation, trainLine, direction, departure, delay))
-
+							
 							let calendar = Calendar.current
 							let updatedTime = calendar.date(byAdding: .minute, value: delay, to: departureTime!)
 							let interval = updatedTime!.timeIntervalSince(Date())
 							var degree = 0
-							if(-30 <= interval && interval <= 60) {
+							if(-30 <= interval && interval <= 90) {
 								degree = 1
 							}
-							else if(60 < interval && interval < 300) {
+							else if(90 < interval && interval < 300) {
 								degree = 2
 							}
 							
-							trainList.append(Train(type: trainType, number: trainNumber, ending: endingStation, direction: direction, line: trainLine, departure: departureTime!, delay: delay, degreeOfIndicator: degree))
+							if(-600 <= interval) {	// filter out departed train
+								let depart = (interval <= -30) ? true:false
+								trainList.append(Train(type: trainType, number: trainNumber, ending: endingStation, direction: direction, line: trainLine, departure: departureTime!, delay: delay, degreeOfIndicator: degree, departed: depart))
+							}
 						}
 						semaphore.signal()
 					}
@@ -156,10 +159,11 @@ class Train {
 	let trainLine: String
 	let departureTime: Date
 	let delayTime: Int
+	let departed: Bool
 	
 	let degreeOfIndicator: Int
 	
-	init(type: String, number: String, ending: String, direction: String, line: String, departure: Date, delay: Int, degreeOfIndicator: Int) {
+	init(type: String, number: String, ending: String, direction: String, line: String, departure: Date, delay: Int, degreeOfIndicator: Int, departed: Bool) {
 		self.trainType			= type
 		self.trainNumber		= number
 		self.endingStation		= ending
@@ -168,6 +172,7 @@ class Train {
 		self.departureTime		= departure
 		self.delayTime			= delay
 		self.degreeOfIndicator	= degreeOfIndicator
+		self.departed			= departed
 	}
 }
 

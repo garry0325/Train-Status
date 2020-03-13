@@ -18,6 +18,8 @@ class TrainBoardCell: UITableViewCell {
 	@IBOutlet var delayLabel: UILabel!
 	
 	@IBOutlet var upcomingIndicator: UIImageView!
+	@IBOutlet var departedDim: UIView!
+	
 	
 	var trainNumber = "200" {
 		didSet {
@@ -76,6 +78,11 @@ class TrainBoardCell: UITableViewCell {
 			default:
 				break
 			}
+		}
+	}
+	var departed: Bool = false {
+		didSet {
+			departedDim.alpha = departed ? 0.5:0.0
 		}
 	}
 	

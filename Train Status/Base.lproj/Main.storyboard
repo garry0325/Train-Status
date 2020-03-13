@@ -93,27 +93,36 @@
                                                         <constraint firstAttribute="height" constant="8" id="rTT-eI-Rio"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djA-at-5sf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Way-ga-9EZ" firstAttribute="leading" secondItem="dF5-Dx-W9h" secondAttribute="leading" constant="2" id="4i1-mI-NCU"/>
                                                 <constraint firstItem="Ou9-hg-b9e" firstAttribute="leading" secondItem="LQ6-qe-vYZ" secondAttribute="trailing" constant="12.5" id="5f3-Mq-YXp"/>
+                                                <constraint firstItem="djA-at-5sf" firstAttribute="top" secondItem="dF5-Dx-W9h" secondAttribute="top" id="6db-U5-MkD"/>
+                                                <constraint firstAttribute="bottom" secondItem="djA-at-5sf" secondAttribute="bottom" id="8it-MC-FN8"/>
                                                 <constraint firstItem="AGL-ax-cHu" firstAttribute="leading" secondItem="CD2-7H-yZ6" secondAttribute="trailing" constant="10" id="Crl-h5-bjg"/>
                                                 <constraint firstItem="Ou9-hg-b9e" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="FE6-33-7Fy"/>
                                                 <constraint firstItem="L4Z-MJ-Hhk" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="Jpa-mg-BhA"/>
                                                 <constraint firstItem="LQ6-qe-vYZ" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="KPH-uJ-Ivu"/>
                                                 <constraint firstItem="Sz0-F4-wM1" firstAttribute="leading" secondItem="L4Z-MJ-Hhk" secondAttribute="trailing" constant="8" id="Kqi-vH-7Fa"/>
                                                 <constraint firstItem="LQ6-qe-vYZ" firstAttribute="leading" secondItem="AGL-ax-cHu" secondAttribute="trailing" constant="11" id="Oot-TN-c2M"/>
+                                                <constraint firstAttribute="trailing" secondItem="djA-at-5sf" secondAttribute="trailing" id="R2B-m5-JtV"/>
                                                 <constraint firstItem="Way-ga-9EZ" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="RRg-iH-UYq"/>
                                                 <constraint firstItem="L4Z-MJ-Hhk" firstAttribute="leading" secondItem="dF5-Dx-W9h" secondAttribute="leading" constant="10" id="hBG-o1-EDZ"/>
                                                 <constraint firstItem="CD2-7H-yZ6" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="ly1-SD-khD"/>
                                                 <constraint firstItem="CD2-7H-yZ6" firstAttribute="leading" secondItem="Sz0-F4-wM1" secondAttribute="trailing" constant="10" id="r21-Ce-HAg"/>
                                                 <constraint firstItem="AGL-ax-cHu" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="v4Y-V0-UT0"/>
                                                 <constraint firstItem="Sz0-F4-wM1" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="v9E-so-wSN"/>
+                                                <constraint firstItem="djA-at-5sf" firstAttribute="leading" secondItem="dF5-Dx-W9h" secondAttribute="leading" id="zUn-U0-BT0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="delayLabel" destination="Ou9-hg-b9e" id="FmD-gp-zAN"/>
+                                            <outlet property="departedDim" destination="djA-at-5sf" id="Bsf-uT-Jea"/>
                                             <outlet property="destinationLabel" destination="Sz0-F4-wM1" id="6Px-FT-PbN"/>
                                             <outlet property="lineLabel" destination="AGL-ax-cHu" id="ifk-0B-JkE"/>
                                             <outlet property="numberLabel" destination="L4Z-MJ-Hhk" id="7Uj-m9-M2u"/>

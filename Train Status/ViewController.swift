@@ -177,7 +177,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	@objc func autoRefresh() {
-		print("auto refresh")
 		locationManager.stopUpdatingLocation()
 		isUpdatingLocation = false
 		queryMOTC()
@@ -203,6 +202,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.departure			= boardTrains[indexPath.row].departureTime
 		cell.delay				= boardTrains[indexPath.row].delayTime
 		cell.degreeOfIndicator	= boardTrains[indexPath.row].degreeOfIndicator
+		cell.departed			= boardTrains[indexPath.row].departed
 		
 		return cell
 	}
