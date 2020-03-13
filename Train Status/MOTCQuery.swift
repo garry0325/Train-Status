@@ -115,7 +115,6 @@ class MOTCQuery {
 							let calendar = Calendar.current
 							let updatedTime = calendar.date(byAdding: .minute, value: delay, to: departureTime!)
 							let interval = updatedTime!.timeIntervalSince(Date())
-							print(interval)
 							var degree = 0
 							if(-30 <= interval && interval <= 60) {
 								degree = 1

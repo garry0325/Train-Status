@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C23DF23A241A4ADE00BD0B1B /* TrainBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */; };
+		C248BE54241B371300065EFC /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C248BE51241B36EE00065EFC /* MyriadPro-Regular.otf */; };
+		C248BE55241B371500065EFC /* Frutiger CE 55 Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C248BE50241B36B800065EFC /* Frutiger CE 55 Roman.ttf */; };
+		C248BE56241B371700065EFC /* DINPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = C248BE4F241B369500065EFC /* DINPro.otf */; };
+		C248BE57241B371900065EFC /* EHSMB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = C248BE4E241B35CE00065EFC /* EHSMB.TTF */; };
+		C248BE5B241B3EA800065EFC /* FrutigerLTStd-BoldCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = C248BE5A241B3EA800065EFC /* FrutigerLTStd-BoldCn.otf */; };
 		C2521D4C241A19C900076347 /* StationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2521D4B241A19C900076347 /* StationSelectionViewController.swift */; };
 		C2521D4E241A1B1300076347 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2521D4D241A1B1300076347 /* Constant.swift */; };
 		C2740F542419F8D900F97C13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2740F532419F8D900F97C13 /* AppDelegate.swift */; };
@@ -23,6 +28,11 @@
 
 /* Begin PBXFileReference section */
 		C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBoardCell.swift; sourceTree = "<group>"; };
+		C248BE4E241B35CE00065EFC /* EHSMB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = EHSMB.TTF; sourceTree = "<group>"; };
+		C248BE4F241B369500065EFC /* DINPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DINPro.otf; sourceTree = "<group>"; };
+		C248BE50241B36B800065EFC /* Frutiger CE 55 Roman.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Frutiger CE 55 Roman.ttf"; sourceTree = "<group>"; };
+		C248BE51241B36EE00065EFC /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		C248BE5A241B3EA800065EFC /* FrutigerLTStd-BoldCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FrutigerLTStd-BoldCn.otf"; sourceTree = "<group>"; };
 		C2521D4B241A19C900076347 /* StationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSelectionViewController.swift; sourceTree = "<group>"; };
 		C2521D4D241A1B1300076347 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C2740F502419F8D900F97C13 /* Train Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Train Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +60,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C248BE4D241B35A700065EFC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C248BE5A241B3EA800065EFC /* FrutigerLTStd-BoldCn.otf */,
+				C248BE51241B36EE00065EFC /* MyriadPro-Regular.otf */,
+				C248BE50241B36B800065EFC /* Frutiger CE 55 Roman.ttf */,
+				C248BE4F241B369500065EFC /* DINPro.otf */,
+				C248BE4E241B35CE00065EFC /* EHSMB.TTF */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		C2740F472419F8D900F97C13 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +104,7 @@
 				C2740F612419F8DC00F97C13 /* LaunchScreen.storyboard */,
 				C2740F642419F8DC00F97C13 /* Info.plist */,
 				C2740F5C2419F8D900F97C13 /* Train_Status.xcdatamodeld */,
+				C248BE4D241B35A700065EFC /* Fonts */,
 			);
 			path = "Train Status";
 			sourceTree = "<group>";
@@ -153,8 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2740F632419F8DC00F97C13 /* LaunchScreen.storyboard in Resources */,
+				C248BE54241B371300065EFC /* MyriadPro-Regular.otf in Resources */,
+				C248BE56241B371700065EFC /* DINPro.otf in Resources */,
 				C2740F602419F8DC00F97C13 /* Assets.xcassets in Resources */,
+				C248BE5B241B3EA800065EFC /* FrutigerLTStd-BoldCn.otf in Resources */,
+				C248BE57241B371900065EFC /* EHSMB.TTF in Resources */,
 				C2740F5B2419F8D900F97C13 /* Main.storyboard in Resources */,
+				C248BE55241B371500065EFC /* Frutiger CE 55 Roman.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

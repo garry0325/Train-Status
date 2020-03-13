@@ -57,7 +57,7 @@ class TrainBoardCell: UITableViewCell {
 	var delay: Int = 0 {
 		didSet {
 			if(delay == 0) {
-				delayLabel.textColor = .black
+				delayLabel.textColor = .white
 				delayLabel.text = "準點"
 			}
 			else {

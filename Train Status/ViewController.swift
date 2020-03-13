@@ -49,6 +49,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		dismissActivityIndicator()
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(updateManualStation), name: NSNotification.Name("SelectedStation"), object: nil)
+		// Because when app is reopen from background, the animation stops
+		NotificationCenter.default.addObserver(self, selector: #selector(backFromBackground), name: UIApplication.didBecomeActiveNotification, object: nil)
 		
 		presentActivityIndicator()
 		locationManager.startUpdatingLocation()
@@ -102,7 +104,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			}
 		}
 		findNearestTRAStation(longitude: Double(userLocation.coordinate.longitude), latitude: Double(userLocation.coordinate.latitude))
-		
 	}
 	
 	func findNearestTRAStation(longitude: Double, latitude: Double) {
@@ -167,6 +168,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	func dismissActivityIndicator() {
 		activityIndicator.stopAnimating()
 		refreshButton.isHidden = false
+	}
+	
+	@objc func backFromBackground(sender: AnyObject) {
+		queryMOTC()
 	}
 }
 
