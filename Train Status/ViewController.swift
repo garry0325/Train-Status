@@ -27,7 +27,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	var currentStationCode = "1000" {
 		didSet {
-			stationButton.setTitle(TRA.Station[currentStationCode]!, for: .normal)
+			stationButton.setTitle(TRA.Station[currentStationCode] ?? "", for: .normal)
 		}
 	}
 	
@@ -51,6 +51,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		NotificationCenter.default.addObserver(self, selector: #selector(updateManualStation), name: NSNotification.Name("SelectedStation"), object: nil)
 		// Because when app is reopen from background, the animation stops
 		NotificationCenter.default.addObserver(self, selector: #selector(backFromBackground), name: UIApplication.didBecomeActiveNotification, object: nil)
+		
+		_ = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(autoRefresh), userInfo: nil, repeats: true)
 		
 		presentActivityIndicator()
 		locationManager.startUpdatingLocation()
@@ -171,6 +173,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	@objc func backFromBackground(sender: AnyObject) {
+		queryMOTC()
+	}
+	
+	@objc func autoRefresh() {
+		print("auto refresh")
+		locationManager.stopUpdatingLocation()
+		isUpdatingLocation = false
 		queryMOTC()
 	}
 }

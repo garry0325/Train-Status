@@ -74,6 +74,74 @@
 			<key>uniqueIdentifier</key>
 			<string>1F5385E1-1737-4E3F-918A-684BDDAC84C6</string>
 		</dict>
+		<key>3627287C-3AB3-4092-8124-0E878A837A07</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3627287C-3AB3-4092-8124-0E878A837A07.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Train Status project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Train Status</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Train Status</string>
+			<key>timeStartedRecording</key>
+			<real>605767389.909073</real>
+			<key>timeStoppedRecording</key>
+			<real>605767523.74768806</real>
+			<key>title</key>
+			<string>Debug Train Status</string>
+			<key>uniqueIdentifier</key>
+			<string>3627287C-3AB3-4092-8124-0E878A837A07</string>
+		</dict>
+		<key>3C2276E6-B357-4C2E-A7F6-0BBE54B9258F</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3C2276E6-B357-4C2E-A7F6-0BBE54B9258F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Train Status project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Train Status</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Train Status</string>
+			<key>timeStartedRecording</key>
+			<real>605768000.65800703</real>
+			<key>timeStoppedRecording</key>
+			<real>605768540.59567106</real>
+			<key>title</key>
+			<string>Debug Train Status</string>
+			<key>uniqueIdentifier</key>
+			<string>3C2276E6-B357-4C2E-A7F6-0BBE54B9258F</string>
+		</dict>
 		<key>57DFA10C-9BB4-4AB8-9778-2B85803A22FB</key>
 		<dict>
 			<key>className</key>
@@ -141,6 +209,40 @@
 			<string>Debug Train Status</string>
 			<key>uniqueIdentifier</key>
 			<string>622613B3-860E-4962-BC28-8EF715FE86D0</string>
+		</dict>
+		<key>7980FDDA-F9A7-4EFD-B5B1-7CC0953B4FB5</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7980FDDA-F9A7-4EFD-B5B1-7CC0953B4FB5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Train Status project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Train Status</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Train Status</string>
+			<key>timeStartedRecording</key>
+			<real>605767791.73935604</real>
+			<key>timeStoppedRecording</key>
+			<real>605767988.56096804</real>
+			<key>title</key>
+			<string>Debug Train Status</string>
+			<key>uniqueIdentifier</key>
+			<string>7980FDDA-F9A7-4EFD-B5B1-7CC0953B4FB5</string>
 		</dict>
 		<key>7C5D4E56-6063-4D76-AF32-FE0E7340DE3A</key>
 		<dict>
@@ -414,6 +516,40 @@
 			<key>uniqueIdentifier</key>
 			<string>C1A8233E-2247-4761-B91A-BFADBA61B659</string>
 		</dict>
+		<key>C269EA78-1CE0-475E-AE61-580A217DF6D7</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>C269EA78-1CE0-475E-AE61-580A217DF6D7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Train Status project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Train Status</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Train Status</string>
+			<key>timeStartedRecording</key>
+			<real>605767765.89259303</real>
+			<key>timeStoppedRecording</key>
+			<real>605767779.42116594</real>
+			<key>title</key>
+			<string>Debug Train Status</string>
+			<key>uniqueIdentifier</key>
+			<string>C269EA78-1CE0-475E-AE61-580A217DF6D7</string>
+		</dict>
 		<key>D1349196-D883-4713-B18C-7B35F1449793</key>
 		<dict>
 			<key>className</key>
@@ -481,6 +617,40 @@
 			<string>Debug Train Status</string>
 			<key>uniqueIdentifier</key>
 			<string>DBD6461D-6B32-46C8-874D-2A8039913A22</string>
+		</dict>
+		<key>E30BBAA8-6D02-42A1-96C3-8FF6D78171F5</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>E30BBAA8-6D02-42A1-96C3-8FF6D78171F5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Train Status project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Train Status</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Train Status</string>
+			<key>timeStartedRecording</key>
+			<real>605768540.52050495</real>
+			<key>timeStoppedRecording</key>
+			<real>605768561.17594504</real>
+			<key>title</key>
+			<string>Debug Train Status</string>
+			<key>uniqueIdentifier</key>
+			<string>E30BBAA8-6D02-42A1-96C3-8FF6D78171F5</string>
 		</dict>
 		<key>EB12FC2B-01D6-4EE2-B3E3-82069250AE5C</key>
 		<dict>
