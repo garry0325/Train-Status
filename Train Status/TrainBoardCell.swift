@@ -82,7 +82,7 @@ class TrainBoardCell: UITableViewCell {
 	}
 	var departed: Bool = false {
 		didSet {
-			departedDim.alpha = departed ? 0.5:0.0
+			departedDim.alpha = departed ? 0.75:0.0
 		}
 	}
 	
