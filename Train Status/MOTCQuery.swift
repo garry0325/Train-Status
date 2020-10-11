@@ -10,6 +10,8 @@ import Foundation
 import CryptoKit
 
 class MOTCQuery {
+	let furtherestTrainTime: Double = 60 * 60
+	
 	let stationCode: String
 	
 	let appID = "1baabcfdb12a4d88bd4b19c7a2c3fd23"
@@ -41,7 +43,15 @@ class MOTCQuery {
 		var trainList: [Train] = []
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/LiveBoard/Station/\(self.stationCode)?$top=30&$format=JSON")!
+		// Because API returns only time(no date) from each train, so need to append date in order to compare with current time
+		let formatter = DateFormatter()
+		formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+		formatter.timeZone = TimeZone(abbreviation: "UTC+8")
+		let formatter2 = DateFormatter()
+		formatter2.dateFormat = "yyyy-MM-dd"
+		formatter2.timeZone = TimeZone(abbreviation: "UTC+8")
+		
+		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/LiveBoard/Station/\(self.stationCode)?$format=JSON")!	// removed OData query $top=30
 		var request = URLRequest(url: url)
 		request.setValue(authTimeString, forHTTPHeaderField: "x-date")
 		request.setValue(authorization, forHTTPHeaderField: "Authorization")
@@ -101,13 +111,6 @@ class MOTCQuery {
 								trainType = TrainClass.None
 							}
 							
-							let formatter = DateFormatter()
-							formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-							formatter.timeZone = TimeZone(abbreviation: "UTC+8")
-							let formatter2 = DateFormatter()
-							formatter2.dateFormat = "yyyy-MM-dd"
-							formatter2.timeZone = TimeZone(abbreviation: "UTC+8")
-							
 							let departureTime = formatter.date(from: String(format: "%@ %@", formatter2.string(from: Date()), departure))
 							
 							print(String(format: "%@%@\t往%@\t%@\t%@\t%@\t延誤%d分", trainType, trainNumber, endingStation, trainLine, direction, departure, delay))
@@ -144,9 +147,95 @@ class MOTCQuery {
 				semaphore.signal()
 			}
 		}
-		task.resume()
 		
+		// Due to some specific trains do not show up from the API above, the following API is used to compensate
+		let url2 = URL(string: "https://ptx.transportdata.tw/MOTC/v3/Rail/TRA/DailyStationTimetable/Today/Station/\(self.stationCode)?$select=Direction%2C%20TimeTables&$format=JSON")!
+		request = URLRequest(url: url2)
+		request.setValue(authTimeString, forHTTPHeaderField: "x-date")	// this line should not be excluded
+		request.setValue(authorization, forHTTPHeaderField: "Authorization")	// this line should not be excluded
+		let task2 = URLSession.shared.dataTask(with: request) { (data, response, error) in
+			if let error = error {
+				print("MOTC query error: \(error.localizedDescription)")
+			}
+			else if let response = response as? HTTPURLResponse,
+				let data = data {
+				if(response.statusCode == 200) {
+					let rawReturned = try? (JSONSerialization.jsonObject(with: data, options: []) as! [String: Any])["StationTimetables"] as? [[String: Any]]
+					
+					let currentTime = Date()
+					formatter.dateFormat = "yyyy-MM-dd HH:mm"	// above API has HH:mm:ss, so change here
+					
+					for rawDirection in rawReturned! {
+						let direction = (rawDirection["Direction"] as! Int == 0) ? "順行":"逆行"
+						let rawTrain = rawDirection["TimeTables"] as! [[String: Any]]
+						for train in rawTrain {
+							let departure = train["DepartureTime"] as! String
+							let departureTime = formatter.date(from: String(format: "%@ %@", formatter2.string(from: Date()), departure))
+							let interval = departureTime!.timeIntervalSince(currentTime)
+							
+							if(interval > self.furtherestTrainTime) {
+								break
+							}
+							if(interval < -300){
+								continue
+							}
+							
+							let trainNumber = train["TrainNo"] as! String
+							if let _ = trainList.firstIndex(where: {$0.trainNumber == trainNumber}) {
+								continue	// exclude trains that already added from the API above
+							}
+							
+							let trainTypeCode = train["TrainTypeCode"] as! String
+							let endingStation = (train["DestinationStationName"] as! [String: Any])["Zh_tw"] as! String
+							
+							let trainType: String
+							switch trainTypeCode {
+							case "1":
+								trainType = TrainClass.Taroko
+							case "2":
+								trainType = TrainClass.Puyuma
+							case "3":
+								trainType = TrainClass.TzeChiang
+							case "4":
+								trainType = TrainClass.ChuKuang
+							case "5":
+								trainType = TrainClass.FuXing
+							case "6":
+								trainType = TrainClass.Local
+							case "7":
+								trainType = TrainClass.Ordinary
+							case "10":
+								trainType = TrainClass.LocalExpress
+							default:
+								trainType = TrainClass.None
+							}
+							
+							print(String(format: "%@%@\t往%@\t%@\t%@\t延誤%d分 從時刻表加入", trainType, trainNumber, endingStation, direction, departure, 0))
+							
+							var degree = 0
+							if(-30 <= interval && interval <= 90) {
+								degree = 1
+							}
+							else if(90 < interval && interval < 300) {
+								degree = 2
+							}
+							let depart = (interval <= -30) ? true:false
+							trainList.append(Train(type: trainType, number: trainNumber, ending: endingStation, direction: direction, line: "", departure: departureTime!, delay: 0, degreeOfIndicator: degree, departed: depart))
+						}
+					}
+				}
+			}
+			semaphore.signal()
+		}
+		
+		task.resume()
 		semaphore.wait()
+		task2.resume()
+		semaphore.wait()
+		
+		// sort the trainList
+		trainList.sort(by: {$0.departureTime <= $1.departureTime})
+		
 		return trainList
 	}
 }
