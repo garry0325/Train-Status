@@ -126,7 +126,7 @@ class MOTCQuery {
 								degree = 2
 							}
 							
-							if(-600 <= interval) {	// filter out departed train
+							if(-300 <= interval) {	// filter out departed train
 								let depart = (interval <= -30) ? true:false
 								trainList.append(Train(type: trainType, number: trainNumber, ending: endingStation, direction: direction, line: trainLine, departure: departureTime!, delay: delay, degreeOfIndicator: degree, departed: depart))
 							}

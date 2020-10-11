@@ -43,6 +43,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		boardTableView.delegate = self
 		boardTableView.dataSource = self
 		
+		boardTableView.allowsSelection = false
+		
 		segmentControl.selectedSegmentIndex = 2
 		segmentControl.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
 		
