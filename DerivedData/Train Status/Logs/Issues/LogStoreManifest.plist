@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>5019E74A-2262-4A28-9B67-7FC91F52143B</key>
+		<key>CF19A9A2-9918-40DC-AC2B-283F14DD6345</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
 			<key>fileName</key>
-			<string>5019E74A-2262-4A28-9B67-7FC91F52143B.xcactivitylog</string>
+			<string>CF19A9A2-9918-40DC-AC2B-283F14DD6345.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -26,13 +26,13 @@
 			<key>signature</key>
 			<string>Train_Status-fhzudvgcdlbwceelztjhtdmjyxpa</string>
 			<key>timeStartedRecording</key>
-			<real>624530972.00430799</real>
+			<real>624533627.258201</real>
 			<key>timeStoppedRecording</key>
-			<real>624530980.17765701</real>
+			<real>624533642.32004499</real>
 			<key>title</key>
 			<string>Build target Train Status</string>
 			<key>uniqueIdentifier</key>
-			<string>5019E74A-2262-4A28-9B67-7FC91F52143B</string>
+			<string>CF19A9A2-9918-40DC-AC2B-283F14DD6345</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>
