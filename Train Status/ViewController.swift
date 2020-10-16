@@ -38,7 +38,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		locationManager.requestWhenInUseAuthorization()
 		
 		boardTableView.delegate = self
 		boardTableView.dataSource = self
@@ -57,8 +56,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		_ = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(autoRefresh), userInfo: nil, repeats: true)
 		
 		presentActivityIndicator()
-		locationManager.startUpdatingLocation()
-		isUpdatingLocation = true
+		checkLocationServicePermission()
 	}
 	deinit {
 		NotificationCenter.default.removeObserver(self)
@@ -81,6 +79,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	@IBAction func getCurrentLocation(_ sender: Any) {
+		checkLocationServicePermission()
 		if(isUpdatingLocation) {
 			queryMOTC()
 		}
@@ -182,6 +181,46 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		locationManager.stopUpdatingLocation()
 		isUpdatingLocation = false
 		queryMOTC()
+	}
+	
+	func checkLocationServicePermission() {
+		dismissActivityIndicator()
+		locationManager.requestWhenInUseAuthorization()
+		
+		if(CLLocationManager.locationServicesEnabled() &&
+			(CLLocationManager.authorizationStatus() == .authorizedAlways ||
+			CLLocationManager.authorizationStatus() == .authorizedWhenInUse)){
+			
+			locationManager.startUpdatingLocation()
+			isUpdatingLocation = true
+		}
+		else {
+			isUpdatingLocation = false
+			locationButton.tintColor = .gray
+			print("Location permission not granted")
+			promptLocationServicePermission()
+		}
+	}
+	
+	func promptLocationServicePermission() {
+		let locationServiceAlert = UIAlertController(title: "請開啟定位服務", message: "設定 > 隱私 > 定位服務", preferredStyle: .alert)
+		let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+		let settingsAction = UIAlertAction(title: "設定", style: .default, handler: {_ in
+			guard let settingsLocationPermissionUrl = URL(string: UIApplication.openSettingsURLString) else {
+						return
+					}
+					print(settingsLocationPermissionUrl)
+					if UIApplication.shared.canOpenURL(settingsLocationPermissionUrl) {
+						UIApplication.shared.open(settingsLocationPermissionUrl, completionHandler: { (success) in
+							print("Settings opened: \(success)") // Prints true
+						})
+					}
+		})
+		
+		locationServiceAlert.addAction(settingsAction)
+		locationServiceAlert.addAction(cancelAction)
+		
+		present(locationServiceAlert, animated: true, completion: nil)
 	}
 }
 
