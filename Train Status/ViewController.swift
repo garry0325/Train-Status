@@ -289,6 +289,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			break
 		}
 	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 44.0
+	}
 }
 
 extension ViewController: UIPopoverPresentationControllerDelegate {
