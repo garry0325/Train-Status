@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreLocation
+import GoogleMobileAds
+import AppTrackingTransparency
+import AdSupport
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 	
@@ -16,6 +19,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet var locationButton: UIButton!
 	@IBOutlet var refreshButton: UIButton!
 	@IBOutlet var boardTableView: UITableView!
+	
+	@IBOutlet var adBannerView: GADBannerView!
+	
 	
 	@IBOutlet var segmentControl: UISegmentedControl!
 	@IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -47,6 +53,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		segmentControl.selectedSegmentIndex = 2
 		segmentControl.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
 		
+		// my banner ad id: ca-app-pub-5814041924860954/6968493215
+		// test banner ad id: ca-app-pub-3940256099942544/2934735716
+		self.adBannerView.adUnitID = "ca-app-pub-5814041924860954/6968493215"
+		self.adBannerView.rootViewController = self
+		self.adBannerView.load(GADRequest())
+				
 		dismissActivityIndicator()
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(updateManualStation), name: NSNotification.Name("SelectedStation"), object: nil)
