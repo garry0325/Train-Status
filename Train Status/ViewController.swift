@@ -14,6 +14,17 @@ import AdSupport
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 	
+	// TODO: no internet connection prompt
+	// TODO: no server response prompt
+	// TODO: Acknowledgement -> https://motc-ptx-api-documentation.gitbook.io/motc-ptx-api-documentation/hui-yuan-shen-qing/membertype
+	// TODO: 免責聲明
+	// TODO: app icon
+	// TODO: change font
+	// TODO: maybe global variables
+	// TODO: first time prompt + warnings
+	// TODO: use core data
+	// TODO: optimize class MOTCQuery so no need to create instance every time
+	
 	var locationManager = CLLocationManager()
 	@IBOutlet var stationButton: UIButton!
 	@IBOutlet var locationButton: UIButton!
