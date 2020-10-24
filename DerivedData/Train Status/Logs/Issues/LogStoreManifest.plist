@@ -90,34 +90,6 @@
 			<key>uniqueIdentifier</key>
 			<string>3C706951-CEE6-482E-A9B6-DBFD4D68CC9F</string>
 		</dict>
-		<key>60B4024B-B620-4D7D-8710-4274605E7CE4</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogMajorGroupSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
-			<key>fileName</key>
-			<string>60B4024B-B620-4D7D-8710-4274605E7CE4.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-			</dict>
-			<key>signature</key>
-			<string>Train_Status-fhzudvgcdlbwceelztjhtdmjyxpa</string>
-			<key>timeStartedRecording</key>
-			<real>625231024.80965102</real>
-			<key>timeStoppedRecording</key>
-			<real>625231040.092242</real>
-			<key>title</key>
-			<string>Build target Train Status</string>
-			<key>uniqueIdentifier</key>
-			<string>60B4024B-B620-4D7D-8710-4274605E7CE4</string>
-		</dict>
 		<key>9381B2BB-89D9-48AB-8796-17A80B0A1EB0</key>
 		<dict>
 			<key>className</key>
@@ -173,6 +145,34 @@
 			<string>Build target GoogleUtilities</string>
 			<key>uniqueIdentifier</key>
 			<string>E59B0877-BE53-4A27-B66D-3EA983B2B027</string>
+		</dict>
+		<key>F25810CB-027B-4A7A-8421-D51A0ADCC510</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
+			<key>fileName</key>
+			<string>F25810CB-027B-4A7A-8421-D51A0ADCC510.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Train_Status-fhzudvgcdlbwceelztjhtdmjyxpa</string>
+			<key>timeStartedRecording</key>
+			<real>625254988.65170705</real>
+			<key>timeStoppedRecording</key>
+			<real>625254997.71680605</real>
+			<key>title</key>
+			<string>Build target Train Status</string>
+			<key>uniqueIdentifier</key>
+			<string>F25810CB-027B-4A7A-8421-D51A0ADCC510</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>

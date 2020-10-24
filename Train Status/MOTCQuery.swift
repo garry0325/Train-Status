@@ -11,6 +11,8 @@ import CryptoKit
 
 class MOTCQuery {
 	let furtherestTrainTime: Double = 60 * 60
+	let timeoutForRequest = 10.0
+	let timeoutForResource = 15.0
 	
 	let stationCode: String
 	
@@ -19,6 +21,8 @@ class MOTCQuery {
 	
 	let authTimeString: String!
 	let authorization: String!
+	
+	var urlConfig = URLSessionConfiguration.default
 	
 	init(stationCode: String) {
 		self.stationCode = stationCode
@@ -37,6 +41,9 @@ class MOTCQuery {
 		let base64HmacString = Data(hmac).base64EncodedString()
 		
 		self.authorization = "hmac username=\"\(self.appID)\", algorithm=\"hmac-sha256\", headers=\"x-date\", signature=\"\(base64HmacString)\""
+		
+		urlConfig.timeoutIntervalForRequest = timeoutForRequest
+		urlConfig.timeoutIntervalForResource = timeoutForResource
 	}
 	
 	func queryStationBoard() -> [Train] {
@@ -51,101 +58,92 @@ class MOTCQuery {
 		formatter2.dateFormat = "yyyy-MM-dd"
 		formatter2.timeZone = TimeZone(abbreviation: "UTC+8")
 		
-		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/LiveBoard/Station/\(self.stationCode)?$format=JSON")!	// removed OData query $top=30
+		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/LiveBoard/Station/\(self.stationCode)?$format=JSON")!
 		var request = URLRequest(url: url)
 		request.setValue(authTimeString, forHTTPHeaderField: "x-date")
 		request.setValue(authorization, forHTTPHeaderField: "Authorization")
-		let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+		let session = URLSession(configuration: urlConfig)
+		let task = session.dataTask(with: request) { (data, response, error) in
 			if let error = error {
 				print("Error: \(error.localizedDescription)")
-				semaphore.signal()
+				
+				DispatchQueue.main.async {
+					ErrorAlert.presentErrorAlert(title: "網路錯誤", message: "網路連線不穩 請稍後再試")
+				}
 			}
 			else if let response = response as? HTTPURLResponse,
 				let data = data {
 				if(response.statusCode == 200) {
 					let rawReturned = try? (JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]])
-					
-					if(rawReturned!.count != 0) {	// exclude the case when train number is invalid
-						print("總共\(rawReturned!.count)輛列車\n")
+					for rawTrain in rawReturned! {
+						let train = rawTrain as [String: Any]
 						
-						for rawTrain in rawReturned! {
-							let train = rawTrain as [String: Any]
-							
-							let trainTypeCode = train["TrainTypeCode"] as! String
-							let trainNumber = train["TrainNo"] as! String
-							let direction = (train["Direction"] as! Int == 0) ? "順行":"逆行"
-							let trainLine: String
-							switch train["TripLine"] as! Int {
-							case 0:
-								trainLine = ""
-							case 1:
-								trainLine = "山線"
-							case 2:
-								trainLine = "海線"
-							default:
-								trainLine = ""
-							}
-							let endingStation = (train["EndingStationName"] as! [String: Any])["Zh_tw"] as! String
-							let departure = train["ScheduledDepartureTime"] as! String
-							let delay = train["DelayTime"] as! Int
-							
-							let trainType: String
-							switch trainTypeCode {
-							case "1":
-								trainType = TrainClass.Taroko
-							case "2":
-								trainType = TrainClass.Puyuma
-							case "3":
-								trainType = TrainClass.TzeChiang
-							case "4":
-								trainType = TrainClass.ChuKuang
-							case "5":
-								trainType = TrainClass.FuXing
-							case "6":
-								trainType = TrainClass.Local
-							case "7":
-								trainType = TrainClass.Ordinary
-							case "10":
-								trainType = TrainClass.LocalExpress
-							default:
-								trainType = TrainClass.None
-							}
-							
-							let departureTime = formatter.date(from: String(format: "%@ %@", formatter2.string(from: Date()), departure))
-							
-							print(String(format: "%@%@\t往%@\t%@\t%@\t%@\t延誤%d分", trainType, trainNumber, endingStation, trainLine, direction, departure, delay))
-							
-							let calendar = Calendar.current
-							let updatedTime = calendar.date(byAdding: .minute, value: delay, to: departureTime!)
-							let interval = updatedTime!.timeIntervalSince(Date())
-							var degree = 0
-							if(-30 <= interval && interval <= 90) {
-								degree = 1
-							}
-							else if(90 < interval && interval < 300) {
-								degree = 2
-							}
-							
-							if(-300 <= interval && interval <= self.furtherestTrainTime) {	// filter out departed train
-								let depart = (interval <= -30) ? true:false
-								trainList.append(Train(type: trainType, number: trainNumber, ending: endingStation, direction: direction, line: trainLine, departure: departureTime!, delay: delay, degreeOfIndicator: degree, departed: depart))
-							}
+						let trainTypeCode = train["TrainTypeCode"] as! String
+						let trainNumber = train["TrainNo"] as! String
+						let direction = (train["Direction"] as! Int == 0) ? "順行":"逆行"
+						let trainLine: String
+						switch train["TripLine"] as! Int {
+						case 0:
+							trainLine = ""
+						case 1:
+							trainLine = "山線"
+						case 2:
+							trainLine = "海線"
+						default:
+							trainLine = ""
 						}
-						semaphore.signal()
-					}
-					else {
-						print("No trains or invalid train number")
-						semaphore.signal()
+						let endingStation = (train["EndingStationName"] as! [String: Any])["Zh_tw"] as! String
+						let departure = train["ScheduledDepartureTime"] as! String
+						let delay = train["DelayTime"] as! Int
+						
+						let trainType: String
+						switch trainTypeCode {
+						case "1":
+							trainType = TrainClass.Taroko
+						case "2":
+							trainType = TrainClass.Puyuma
+						case "3":
+							trainType = TrainClass.TzeChiang
+						case "4":
+							trainType = TrainClass.ChuKuang
+						case "5":
+							trainType = TrainClass.FuXing
+						case "6":
+							trainType = TrainClass.Local
+						case "7":
+							trainType = TrainClass.Ordinary
+						case "10":
+							trainType = TrainClass.LocalExpress
+						default:
+							trainType = TrainClass.None
+						}
+						
+						let departureTime = formatter.date(from: String(format: "%@ %@", formatter2.string(from: Date()), departure))
+						
+						print(String(format: "%@%@\t往%@\t%@\t%@\t%@\t延誤%d分", trainType, trainNumber, endingStation, trainLine, direction, departure, delay))
+						
+						let calendar = Calendar.current
+						let updatedTime = calendar.date(byAdding: .minute, value: delay, to: departureTime!)
+						let interval = updatedTime!.timeIntervalSince(Date())
+						var degree = 0
+						if(-30 <= interval && interval <= 90) {
+							degree = 1
+						}
+						else if(90 < interval && interval < 300) {
+							degree = 2
+						}
+						
+						if(-300 <= interval && interval <= self.furtherestTrainTime) {	// filter out departed train
+							let depart = (interval <= -30) ? true:false
+							trainList.append(Train(type: trainType, number: trainNumber, ending: endingStation, direction: direction, line: trainLine, departure: departureTime!, delay: delay, degreeOfIndicator: degree, departed: depart))
+						}
 					}
 				}
 				else {
 					print("Response not 200")
-					semaphore.signal()
 				}
 			}
-			else {
-				semaphore.signal()
-			}
+			semaphore.signal()
 		}
 		
 		// Due to some specific trains do not show up from the API above, the following API is used to compensate
@@ -153,12 +151,14 @@ class MOTCQuery {
 		request = URLRequest(url: url2)
 		request.setValue(authTimeString, forHTTPHeaderField: "x-date")	// this line should not be excluded
 		request.setValue(authorization, forHTTPHeaderField: "Authorization")	// this line should not be excluded
-		let task2 = URLSession.shared.dataTask(with: request) { (data, response, error) in
+		let session2 = URLSession(configuration: urlConfig)
+		let task2 = session2.dataTask(with: request) { (data, response, error) in
 			if let error = error {
 				print("MOTC query error: \(error.localizedDescription)")
+				
 			}
 			else if let response = response as? HTTPURLResponse,
-				let data = data {
+					let data = data {
 				if(response.statusCode == 200) {
 					let rawReturned = try? (JSONSerialization.jsonObject(with: data, options: []) as! [String: Any])["StationTimetables"] as? [[String: Any]]
 					

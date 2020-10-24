@@ -8,11 +8,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="FrutigerLTStd-BoldCn.otf">
-            <string>FrutigerLTStd-BoldCn</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -33,22 +28,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4444" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Z-MJ-Hhk">
-                                                    <rect key="frame" x="9.9999999999999964" y="12.666666666666664" width="58.666666666666657" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4444" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Z-MJ-Hhk">
+                                                    <rect key="frame" x="9.9999999999999964" y="10.666666666666664" width="58.666666666666657" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Ni5-t4-356"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="FrutigerLTStd-BoldCn" family="Frutiger LT Std" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新左營" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Sz0-F4-wM1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新左營" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Sz0-F4-wM1">
                                                     <rect key="frame" x="78" y="11" width="56" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="普悠瑪" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD2-7H-yZ6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="普悠瑪" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD2-7H-yZ6">
                                                     <rect key="frame" x="151" y="11" width="56" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="ESz-nl-Wdh"/>
@@ -57,7 +52,7 @@
                                                     <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山線" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-ax-cHu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山線" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGL-ax-cHu">
                                                     <rect key="frame" x="222.66666666666666" y="11" width="36.999999999999972" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="Zcf-pO-6FL"/>
@@ -66,18 +61,18 @@
                                                     <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQ6-qe-vYZ">
-                                                    <rect key="frame" x="276.33333333333331" y="12.666666666666664" width="50" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:22" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQ6-qe-vYZ">
+                                                    <rect key="frame" x="272.66666666666669" y="10.666666666666664" width="55" height="23"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="TKb-Ab-dSp"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="TKb-Ab-dSp"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="FrutigerLTStd-BoldCn" family="Frutiger LT Std" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                     <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晚43分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Ou9-hg-b9e">
-                                                    <rect key="frame" x="345.66666666666669" y="12.666666666666664" width="58" height="19"/>
-                                                    <fontDescription key="fontDescription" name="FrutigerLTStd-BoldCn" family="Frutiger LT Std" pointSize="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晚43分" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Ou9-hg-b9e">
+                                                    <rect key="frame" x="343.33333333333331" y="10.666666666666664" width="62.666666666666686" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                     <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -100,8 +95,8 @@
                                                 <constraint firstItem="djA-at-5sf" firstAttribute="top" secondItem="dF5-Dx-W9h" secondAttribute="top" id="6db-U5-MkD"/>
                                                 <constraint firstItem="Ou9-hg-b9e" firstAttribute="centerX" secondItem="dF5-Dx-W9h" secondAttribute="centerX" multiplier="1.81" id="7Wd-LZ-h11"/>
                                                 <constraint firstAttribute="bottom" secondItem="djA-at-5sf" secondAttribute="bottom" id="8it-MC-FN8"/>
-                                                <constraint firstItem="LQ6-qe-vYZ" firstAttribute="centerX" secondItem="dF5-Dx-W9h" secondAttribute="centerX" multiplier="1.456" id="DCP-Jj-uDN"/>
                                                 <constraint firstItem="Ou9-hg-b9e" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="FE6-33-7Fy"/>
+                                                <constraint firstItem="LQ6-qe-vYZ" firstAttribute="centerX" secondItem="dF5-Dx-W9h" secondAttribute="centerX" multiplier="1.45" id="IMs-kV-iCQ"/>
                                                 <constraint firstItem="L4Z-MJ-Hhk" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="Jpa-mg-BhA"/>
                                                 <constraint firstItem="LQ6-qe-vYZ" firstAttribute="centerY" secondItem="dF5-Dx-W9h" secondAttribute="centerY" id="KPH-uJ-Ivu"/>
                                                 <constraint firstAttribute="trailing" secondItem="djA-at-5sf" secondAttribute="trailing" id="R2B-m5-JtV"/>

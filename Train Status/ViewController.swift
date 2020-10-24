@@ -19,7 +19,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: Acknowledgement -> https://motc-ptx-api-documentation.gitbook.io/motc-ptx-api-documentation/hui-yuan-shen-qing/membertype
 	// TODO: 免責聲明
 	// TODO: app icon
-	// TODO: change font
+	// TODO: change font +
 	// TODO: maybe global variables
 	// TODO: first time prompt + warnings
 	// TODO: use core data
