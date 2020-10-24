@@ -214,10 +214,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wau-p2-yaN" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="656" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="636" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="uQn-AJ-ZQU"/>
+                                    <constraint firstAttribute="height" constant="100" id="uQn-AJ-ZQU"/>
                                 </constraints>
                             </view>
                         </subviews>

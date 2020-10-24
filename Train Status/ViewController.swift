@@ -14,7 +14,7 @@ import AdSupport
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 	
-	// TODO: no internet connection prompt
+	// TODO: no internet connection prompt +
 	// TODO: no server response prompt
 	// TODO: Acknowledgement -> https://motc-ptx-api-documentation.gitbook.io/motc-ptx-api-documentation/hui-yuan-shen-qing/membertype
 	// TODO: 免責聲明
@@ -252,26 +252,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		//		if(section == 0) {
-		//			return 1
-		//		}
-		//		else {
-		return boardTrains.count
-		//}
+		if(boardTrains.count == 0) {
+			return 0
+		}
+		
+		return boardTrains.count + 2	// increase the rows in order to compensate hiding on iPhone X+
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "BoardTrain") as! TrainBoardCell
-		cell.trainNumber		= boardTrains[indexPath.row].trainNumber
-		cell.trainType			= boardTrains[indexPath.row].trainType
-		cell.destination		= boardTrains[indexPath.row].endingStation
-		cell.line				= boardTrains[indexPath.row].trainLine
-		cell.departure			= boardTrains[indexPath.row].departureTime
-		cell.delay				= boardTrains[indexPath.row].delayTime
-		cell.degreeOfIndicator	= boardTrains[indexPath.row].degreeOfIndicator
-		cell.departed			= boardTrains[indexPath.row].departed
 		
-		return cell
+		if(indexPath.row < boardTrains.count) {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "BoardTrain") as! TrainBoardCell
+			cell.trainNumber		= boardTrains[indexPath.row].trainNumber
+			cell.trainType			= boardTrains[indexPath.row].trainType
+			cell.destination		= boardTrains[indexPath.row].endingStation
+			cell.line				= boardTrains[indexPath.row].trainLine
+			cell.departure			= boardTrains[indexPath.row].departureTime
+			cell.delay				= boardTrains[indexPath.row].delayTime
+			cell.degreeOfIndicator	= boardTrains[indexPath.row].degreeOfIndicator
+			cell.departed			= boardTrains[indexPath.row].departed
+			
+			return cell
+		}
+		else {
+			var cell = TrainBoardCell()
+			cell.backgroundColor = .black
+			
+			return cell
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
