@@ -275,7 +275,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		}
 		else {
-			var cell = TrainBoardCell()
+			let cell = TrainBoardCell()
 			cell.backgroundColor = .black
 			
 			return cell
