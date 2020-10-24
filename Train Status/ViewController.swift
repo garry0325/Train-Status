@@ -72,6 +72,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 				
 		dismissActivityIndicator()
 		
+		// Monitor network connection
+		NetworkConnection().startMonitoring()
+		
 		NotificationCenter.default.addObserver(self, selector: #selector(updateManualStation), name: NSNotification.Name("SelectedStation"), object: nil)
 		// Because when app is reopen from background, the animation stops
 		NotificationCenter.default.addObserver(self, selector: #selector(backFromBackground), name: UIApplication.didBecomeActiveNotification, object: nil)

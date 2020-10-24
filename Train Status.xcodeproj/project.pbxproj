@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C21B1FFF2543FF8100E9BEB9 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */; };
 		C23DF23A241A4ADE00BD0B1B /* TrainBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */; };
 		C248BE54241B371300065EFC /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C248BE51241B36EE00065EFC /* MyriadPro-Regular.otf */; };
 		C248BE55241B371500065EFC /* Frutiger CE 55 Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C248BE50241B36B800065EFC /* Frutiger CE 55 Roman.ttf */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		03B692625D4FBE53057EDE08 /* Pods_Train_Status.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Train_Status.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Status.release.xcconfig"; path = "Target Support Files/Pods-Train Status/Pods-Train Status.release.xcconfig"; sourceTree = "<group>"; };
+		C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBoardCell.swift; sourceTree = "<group>"; };
 		C248BE4E241B35CE00065EFC /* EHSMB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = EHSMB.TTF; sourceTree = "<group>"; };
 		C248BE4F241B369500065EFC /* DINPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DINPro.otf; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */,
 				C2740F6A2419F93200F97C13 /* MOTCQuery.swift */,
 				C2521D4D241A1B1300076347 /* Constant.swift */,
+				C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */,
 				C2740F592419F8D900F97C13 /* Main.storyboard */,
 				C2740F5F2419F8DC00F97C13 /* Assets.xcassets */,
 				C2740F612419F8DC00F97C13 /* LaunchScreen.storyboard */,
@@ -130,7 +133,6 @@
 				F8C692437237D2995CC09072 /* Pods-Train Status.debug.xcconfig */,
 				752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -254,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C21B1FFF2543FF8100E9BEB9 /* ErrorHandling.swift in Sources */,
 				C2521D4E241A1B1300076347 /* Constant.swift in Sources */,
 				C2740F582419F8D900F97C13 /* ViewController.swift in Sources */,
 				C2740F6B2419F93200F97C13 /* MOTCQuery.swift in Sources */,
