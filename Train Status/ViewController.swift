@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import CoreLocation
 import GoogleMobileAds
 import AppTrackingTransparency
@@ -24,6 +25,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: first time prompt + warnings
 	// TODO: use core data
 	// TODO: optimize class MOTCQuery so no need to create instance every time
+	// TODO: code optimization
+	// TODO: eliminate warnings
+	
+	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 	
 	var locationManager = CLLocationManager()
 	@IBOutlet var stationButton: UIButton!
@@ -53,6 +58,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		checkInitial()
 		
 		UserDefaults.standard.set(["zh_TW"], forKey: "AppleLanguages")
 		
@@ -253,6 +260,49 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		locationServiceAlert.addAction(cancelAction)
 		
 		present(locationServiceAlert, animated: true, completion: nil)
+	}
+	
+	func checkInitial() {
+		var initialUse: Bool?
+		do {
+			let initial = try context.fetch(Initial.fetchRequest()) as! [Initial]
+			print(initial.count)
+			if(initial.count > 0 && initial[initial.count - 1].notInitialUse == true) {
+				print("used before")
+				initialUse = false
+			}
+			else {
+				print("initial use")
+				initialUse = true
+			}
+		} catch {
+			print("Error fetching Initial")
+			initialUse = true
+		}
+		
+		if(initialUse ?? true) {
+			presentWelcomeWarning()
+		}
+	}
+	
+	func presentWelcomeWarning() {
+	
+		DispatchQueue.main.async {
+			let welcomeAlert = UIAlertController(title: "注意事項", message: "請使用者以參考表定發車時間為主，勿因列車顯示延誤而更動行程。本服務對於造成任何損害不負法律責任，包括任何疏忽責任。", preferredStyle: .alert)
+			let okAction = UIAlertAction(title: "OK", style: .default, handler: {_ in
+				let newInitial = Initial(context: self.context)
+				newInitial.notInitialUse = true
+				do {
+					try self.context.save()
+					print("context saved")
+				} catch {
+					print("Error saving Initial")
+				}
+			})
+			welcomeAlert.addAction(okAction)
+			self.present(welcomeAlert, animated: true, completion: nil)
+			print("welcome alert presented")
+		}
 	}
 }
 

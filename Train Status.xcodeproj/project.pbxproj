@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C20AE75725456C1D0069DA50 /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75625456C1D0069DA50 /* AcknowledgementViewController.swift */; };
+		C20AE75C2545BFFA0069DA50 /* Initial+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */; };
+		C20AE75D2545BFFA0069DA50 /* Initial+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */; };
+		C20AE7692545CA170069DA50 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE7682545CA170069DA50 /* PersistentContainer.swift */; };
 		C21B1FFF2543FF8100E9BEB9 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */; };
 		C23DF23A241A4ADE00BD0B1B /* TrainBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */; };
 		C248BE54241B371300065EFC /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C248BE51241B36EE00065EFC /* MyriadPro-Regular.otf */; };
@@ -33,6 +36,9 @@
 		03B692625D4FBE53057EDE08 /* Pods_Train_Status.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Train_Status.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Status.release.xcconfig"; path = "Target Support Files/Pods-Train Status/Pods-Train Status.release.xcconfig"; sourceTree = "<group>"; };
 		C20AE75625456C1D0069DA50 /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
+		C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataClass.swift"; path = "/Users/garry0325/Downloads/Swift/Train Status/Train Status/Initial+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataProperties.swift"; path = "/Users/garry0325/Downloads/Swift/Train Status/Train Status/Initial+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		C20AE7682545CA170069DA50 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBoardCell.swift; sourceTree = "<group>"; };
 		C248BE4E241B35CE00065EFC /* EHSMB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = EHSMB.TTF; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 				C2740F612419F8DC00F97C13 /* LaunchScreen.storyboard */,
 				C2740F642419F8DC00F97C13 /* Info.plist */,
 				C2740F5C2419F8D900F97C13 /* Train_Status.xcdatamodeld */,
+				C20AE7682545CA170069DA50 /* PersistentContainer.swift */,
+				C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */,
+				C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */,
 				C248BE4D241B35A700065EFC /* Fonts */,
 			);
 			path = "Train Status";
@@ -265,10 +274,13 @@
 				C20AE75725456C1D0069DA50 /* AcknowledgementViewController.swift in Sources */,
 				C2740F6B2419F93200F97C13 /* MOTCQuery.swift in Sources */,
 				C2521D4C241A19C900076347 /* StationSelectionViewController.swift in Sources */,
+				C20AE7692545CA170069DA50 /* PersistentContainer.swift in Sources */,
 				C2740F542419F8D900F97C13 /* AppDelegate.swift in Sources */,
 				C23DF23A241A4ADE00BD0B1B /* TrainBoardCell.swift in Sources */,
+				C20AE75D2545BFFA0069DA50 /* Initial+CoreDataClass.swift in Sources */,
 				C2740F5E2419F8D900F97C13 /* Train_Status.xcdatamodeld in Sources */,
 				C2740F562419F8D900F97C13 /* SceneDelegate.swift in Sources */,
+				C20AE75C2545BFFA0069DA50 /* Initial+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

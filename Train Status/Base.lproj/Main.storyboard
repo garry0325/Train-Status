@@ -126,7 +126,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksw-pe-xuD">
-                                <rect key="frame" x="16" y="20" width="25" height="23.666666666666671"/>
+                                <rect key="frame" x="20" y="20" width="25" height="23.666666666666671"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="location.fill" catalog="system"/>
                                 <connections>
@@ -134,7 +134,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZH-VF-CLi">
-                                <rect key="frame" x="48.666666666666657" y="11" width="51" height="42"/>
+                                <rect key="frame" x="52.666666666666657" y="11" width="51" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="臺北">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -215,15 +215,17 @@
                                     <constraint firstAttribute="height" constant="100" id="uQn-AJ-ZQU"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-g0-OAt">
-                                <rect key="frame" x="369" y="691" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-g0-OAt">
+                                <rect key="frame" x="359" y="681" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="b8b-yD-0jg"/>
-                                    <constraint firstAttribute="height" constant="30" id="gke-wH-MKf"/>
+                                    <constraint firstAttribute="width" constant="40" id="b8b-yD-0jg"/>
+                                    <constraint firstAttribute="height" constant="40" id="gke-wH-MKf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="info.circle.fill" catalog="system"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" image="info.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="bold"/>
+                                </state>
                                 <connections>
                                     <segue destination="7aK-zL-7dZ" kind="popoverPresentation" identifier="Acknowledgement" popoverAnchorView="1Rn-g0-OAt" id="ydD-4j-4ou">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -263,7 +265,7 @@
                             <constraint firstItem="Y68-yl-rDK" firstAttribute="leading" secondItem="nMd-3c-5qk" secondAttribute="trailing" constant="15" id="grB-Ke-Bqc"/>
                             <constraint firstItem="IjC-Zc-Ktv" firstAttribute="centerY" secondItem="KED-3w-VDd" secondAttribute="centerY" id="iCy-g3-R69"/>
                             <constraint firstItem="azf-WZ-LIj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lsz-JJ-6PV"/>
-                            <constraint firstItem="ksw-pe-xuD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nAz-B1-sQ3"/>
+                            <constraint firstItem="ksw-pe-xuD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nAz-B1-sQ3"/>
                             <constraint firstItem="nMd-3c-5qk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HZH-VF-CLi" secondAttribute="trailing" constant="30.5" id="nPj-VV-hIm"/>
                             <constraint firstItem="azf-WZ-LIj" firstAttribute="top" secondItem="HZH-VF-CLi" secondAttribute="bottom" constant="40" id="o21-uJ-ZkH"/>
                             <constraint firstItem="ujh-g8-wcB" firstAttribute="centerY" secondItem="dDp-At-x1b" secondAttribute="centerY" id="zPs-52-p4e"/>
@@ -476,6 +478,9 @@ Cg
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
