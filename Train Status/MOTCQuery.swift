@@ -120,7 +120,7 @@ class MOTCQuery {
 						
 						let departureTime = formatter.date(from: String(format: "%@ %@", formatter2.string(from: Date()), departure))
 						
-						print(String(format: "%@%@\t往%@\t%@\t%@\t%@\t延誤%d分", trainType, trainNumber, endingStation, trainLine, direction, departure, delay))
+						//print(String(format: "%@%@\t往%@\t%@\t%@\t%@\t延誤%d分", trainType, trainNumber, endingStation, trainLine, direction, departure, delay))
 						
 						let calendar = Calendar.current
 						let updatedTime = calendar.date(byAdding: .minute, value: delay, to: departureTime!)
@@ -210,7 +210,7 @@ class MOTCQuery {
 								trainType = TrainClass.None
 							}
 							
-							print(String(format: "%@%@\t往%@\t%@\t%@\t延誤%d分 從時刻表加入", trainType, trainNumber, endingStation, direction, departure, 0))
+							//print(String(format: "%@%@\t往%@\t%@\t%@\t延誤%d分 從時刻表加入", trainType, trainNumber, endingStation, direction, departure, 0))
 							
 							var degree = 0
 							if(-30 <= interval && interval <= 90) {

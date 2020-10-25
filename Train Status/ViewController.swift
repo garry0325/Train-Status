@@ -36,6 +36,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	@IBOutlet var segmentControl: UISegmentedControl!
 	@IBOutlet var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet var informationButton: UIButton!
 	
 	var selectedSegment = 2
 	var isUpdatingLocation = false
@@ -47,6 +48,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			stationButton.setTitle(TRA.Station[currentStationCode] ?? "", for: .normal)
 		}
 	}
+	@IBOutlet var informationButtonToSafeAreaLayout: NSLayoutConstraint!
+	var informationButtonToAdBannerLayout: NSLayoutConstraint?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -66,6 +69,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		
 		// my banner ad id: ca-app-pub-5814041924860954/6968493215
 		// test banner ad id: ca-app-pub-3940256099942544/2934735716
+		self.informationButtonToAdBannerLayout = NSLayoutConstraint(item: informationButton!, attribute: .bottom, relatedBy: .equal, toItem: adBannerView, attribute: .top, multiplier: 1.0, constant: -15.0)
+		self.adBannerView.isHidden = true
+		self.adBannerView.delegate = self
 		self.adBannerView.adUnitID = "ca-app-pub-5814041924860954/6968493215"
 		self.adBannerView.rootViewController = self
 		self.adBannerView.load(GADRequest())
@@ -322,5 +328,30 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
 	
 	func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
 		return .none
+	}
+}
+
+extension ViewController: GADBannerViewDelegate {
+	func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+		print("Ad will present")
+	}
+	
+	func adViewDidRecordImpression(_ bannerView: GADBannerView) {
+		print("Ad impression recorded")
+	}
+	
+	func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+		print("Ad loaded successfully")
+		self.adBannerView.isHidden = false
+		
+		informationButtonToSafeAreaLayout.isActive = false
+		informationButtonToAdBannerLayout?.isActive = true
+	}
+	
+	func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+		print("Ad failed to load. \(error.localizedDescription)")
+		
+		informationButtonToSafeAreaLayout.isActive = true
+		informationButtonToAdBannerLayout?.isActive = false
 	}
 }

@@ -24,16 +24,13 @@ class NetworkConnection {
 					self?.isReachableOnCellular = path.isExpensive
 
 					if path.status == .satisfied {
-						print("We're connected!")
 						// post connected notification
 					} else {
 						print("No connection.")
-						
 						DispatchQueue.main.async {
 							ErrorAlert.presentErrorAlert(title: "網路錯誤", message: "請檢查是否開啟網路")
 						}
 					}
-					print(path.isExpensive)
 				}
 		
 		let queue = DispatchQueue(label: "NetworkConnection")
