@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20AE75725456C1D0069DA50 /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75625456C1D0069DA50 /* AcknowledgementViewController.swift */; };
 		C21B1FFF2543FF8100E9BEB9 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */; };
 		C23DF23A241A4ADE00BD0B1B /* TrainBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */; };
 		C248BE54241B371300065EFC /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C248BE51241B36EE00065EFC /* MyriadPro-Regular.otf */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		03B692625D4FBE53057EDE08 /* Pods_Train_Status.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Train_Status.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Status.release.xcconfig"; path = "Target Support Files/Pods-Train Status/Pods-Train Status.release.xcconfig"; sourceTree = "<group>"; };
+		C20AE75625456C1D0069DA50 /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
 		C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBoardCell.swift; sourceTree = "<group>"; };
 		C248BE4E241B35CE00065EFC /* EHSMB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = EHSMB.TTF; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				C2740F552419F8D900F97C13 /* SceneDelegate.swift */,
 				C2740F572419F8D900F97C13 /* ViewController.swift */,
 				C2521D4B241A19C900076347 /* StationSelectionViewController.swift */,
+				C20AE75625456C1D0069DA50 /* AcknowledgementViewController.swift */,
 				C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */,
 				C2740F6A2419F93200F97C13 /* MOTCQuery.swift */,
 				C2521D4D241A1B1300076347 /* Constant.swift */,
@@ -259,6 +262,7 @@
 				C21B1FFF2543FF8100E9BEB9 /* ErrorHandling.swift in Sources */,
 				C2521D4E241A1B1300076347 /* Constant.swift in Sources */,
 				C2740F582419F8D900F97C13 /* ViewController.swift in Sources */,
+				C20AE75725456C1D0069DA50 /* AcknowledgementViewController.swift in Sources */,
 				C2740F6B2419F93200F97C13 /* MOTCQuery.swift in Sources */,
 				C2521D4C241A19C900076347 /* StationSelectionViewController.swift in Sources */,
 				C2740F542419F8D900F97C13 /* AppDelegate.swift in Sources */,
@@ -421,7 +425,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Garry.Train-Status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -440,7 +444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Garry.Train-Status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

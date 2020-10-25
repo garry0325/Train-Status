@@ -16,8 +16,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	// TODO: no internet connection prompt +
 	// TODO: no server response prompt
-	// TODO: Acknowledgement -> https://motc-ptx-api-documentation.gitbook.io/motc-ptx-api-documentation/hui-yuan-shen-qing/membertype
-	// TODO: 免責聲明
+	// TODO: Acknowledgement -> + https://motc-ptx-api-documentation.gitbook.io/motc-ptx-api-documentation/hui-yuan-shen-qing/membertype
+	// TODO: 免責聲明 +
 	// TODO: app icon
 	// TODO: change font +
 	// TODO: maybe global variables
@@ -75,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		self.adBannerView.adUnitID = "ca-app-pub-5814041924860954/6968493215"
 		self.adBannerView.rootViewController = self
 		self.adBannerView.load(GADRequest())
-				
+		
 		dismissActivityIndicator()
 		
 		// Monitor network connection
@@ -314,15 +314,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ViewController: UIPopoverPresentationControllerDelegate {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let destination = segue.destination as! StationSelectionViewController
-		
-		destination.popoverPresentationController?.delegate = self
 		
 		if(segue.identifier == "StationSelection") {
+			let destination = segue.destination as! StationSelectionViewController
+			
+			destination.popoverPresentationController?.delegate = self
+			
 			destination.preferredContentSize = CGSize(width: 200, height: 350)
 			destination.regionAutoscrollPosition = TRA.stationPositionInList[currentStationCode]![0]
 			destination.stationAutoscrollPosition = TRA.stationPositionInList[currentStationCode]![1]
 			destination.selectedRegion = TRA.stationPositionInList[currentStationCode]![0]
+		}
+		
+		else {
+			let destination = segue.destination as! AcknowledgementViewController
+			
+			destination.popoverPresentationController?.delegate = self
+			
+			destination.preferredContentSize = CGSize(width: 350, height: 220)
 		}
 	}
 	
