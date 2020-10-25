@@ -22,8 +22,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: app icon
 	// TODO: change font +
 	// TODO: maybe global variables
-	// TODO: first time prompt + warnings
-	// TODO: use core data
+	// TODO: first time prompt + warnings +
+	// TODO: use core data +
 	// TODO: optimize class MOTCQuery so no need to create instance every time
 	// TODO: code optimization
 	// TODO: eliminate warnings
@@ -59,8 +59,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		checkInitial()
-		
 		UserDefaults.standard.set(["zh_TW"], forKey: "AppleLanguages")
 		
 		locationManager.delegate = self
@@ -81,6 +79,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		self.adBannerView.delegate = self
 		self.adBannerView.adUnitID = "ca-app-pub-5814041924860954/6968493215"
 		self.adBannerView.rootViewController = self
+		
+		if(checkInitial()) {
+			presentWelcomeWarning()
+		}
+		else {
+			initialSetup()
+			checkLocationServicePermission()
+		}
+	}
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+	
+	func initialSetup() {
 		self.adBannerView.load(GADRequest())
 		
 		dismissActivityIndicator()
@@ -95,10 +107,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		_ = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(autoRefresh), userInfo: nil, repeats: true)
 		
 		presentActivityIndicator()
-		checkLocationServicePermission()
-	}
-	deinit {
-		NotificationCenter.default.removeObserver(self)
 	}
 	
 	@objc func updateManualStation(notification: Notification) {
@@ -262,17 +270,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		present(locationServiceAlert, animated: true, completion: nil)
 	}
 	
-	func checkInitial() {
+	func checkInitial() -> Bool {
 		var initialUse: Bool?
 		do {
 			let initial = try context.fetch(Initial.fetchRequest()) as! [Initial]
-			print(initial.count)
 			if(initial.count > 0 && initial[initial.count - 1].notInitialUse == true) {
-				print("used before")
 				initialUse = false
 			}
 			else {
-				print("initial use")
 				initialUse = true
 			}
 		} catch {
@@ -280,29 +285,40 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			initialUse = true
 		}
 		
-		if(initialUse ?? true) {
-			presentWelcomeWarning()
-		}
+		return (initialUse ?? true) ? true:false
 	}
 	
 	func presentWelcomeWarning() {
 	
 		DispatchQueue.main.async {
-			let welcomeAlert = UIAlertController(title: "注意事項", message: "請使用者以參考表定發車時間為主，勿因列車顯示延誤而更動行程。本服務對於造成任何損害不負法律責任，包括任何疏忽責任。", preferredStyle: .alert)
-			let okAction = UIAlertAction(title: "OK", style: .default, handler: {_ in
+			let welcomeAlert = UIAlertController(title: "溫馨提示", message: "請使用者以參考表定發車時間為主，勿因列車顯示延誤而更動行程。\n資料來源：交通部PTX平臺", preferredStyle: .alert)
+			let okAction = UIAlertAction(title: "我知道了", style: .default, handler: {_ in
 				let newInitial = Initial(context: self.context)
 				newInitial.notInitialUse = true
 				do {
 					try self.context.save()
-					print("context saved")
 				} catch {
 					print("Error saving Initial")
 				}
+				
+				self.initialSetup()
+				self.dismissActivityIndicator()
+				self.locationManager.requestWhenInUseAuthorization()
 			})
 			welcomeAlert.addAction(okAction)
 			self.present(welcomeAlert, animated: true, completion: nil)
-			print("welcome alert presented")
 		}
+	}
+	
+	func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+		if(CLLocationManager.locationServicesEnabled() &&
+			(CLLocationManager.authorizationStatus() == .authorizedAlways ||
+			CLLocationManager.authorizationStatus() == .authorizedWhenInUse)){
+			
+			locationManager.startUpdatingLocation()
+			isUpdatingLocation = true
+		}
+		// if put 'else' here, the alertController would present unintended situation
 	}
 }
 

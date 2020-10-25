@@ -224,7 +224,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <state key="normal" image="info.circle.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="bold"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="bold"/>
                                 </state>
                                 <connections>
                                     <segue destination="7aK-zL-7dZ" kind="popoverPresentation" identifier="Acknowledgement" popoverAnchorView="1Rn-g0-OAt" id="ydD-4j-4ou">
