@@ -15,14 +15,6 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>FrutigerLTStd-BoldCn.otf</string>
-		<string>MyriadPro-Regular.otf</string>
-		<string>Frutiger CE 55 Roman.ttf</string>
-		<string>DINPro.otf</string>
-		<string>EHSMB.TTF</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
