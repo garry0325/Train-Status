@@ -21,7 +21,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: 免責聲明 +
 	// TODO: app icon
 	// TODO: change font +
-	// TODO: maybe global variables
 	// TODO: first time prompt + warnings +
 	// TODO: use core data +
 	// TODO: optimize class MOTCQuery so no need to create instance every time
