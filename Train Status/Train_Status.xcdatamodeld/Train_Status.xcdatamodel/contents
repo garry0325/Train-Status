@@ -3,7 +3,11 @@
     <entity name="Initial" representedClassName="Initial" syncable="YES">
         <attribute name="notInitialUse" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
+        <attribute name="lastViewStation" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Initial" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="Record" positionX="-63" positionY="-9" width="128" height="58"/>
     </elements>
 </model>

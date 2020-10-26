@@ -28,6 +28,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: eliminate warnings
 	
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+	var lastViewStation: Array<Record>?
 	
 	var locationManager = CLLocationManager()
 	@IBOutlet var stationButton: UIButton!
@@ -50,6 +51,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	var currentStationCode = "1000" {
 		didSet {
 			stationButton.setTitle(TRA.Station[currentStationCode] ?? "", for: .normal)
+			updateLastViewStation()
 		}
 	}
 	@IBOutlet var informationButtonToSafeAreaLayout: NSLayoutConstraint!
@@ -83,6 +85,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			presentWelcomeWarning()
 		}
 		else {
+			checkLastViewStation()
 			initialSetup()
 			checkLocationServicePermission()
 		}
@@ -183,8 +186,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		
 		let queue = DispatchQueue(label: "MOTC")
 		queue.async {
-			let query = MOTCQuery(stationCode: self.currentStationCode)
-			self.boardTrains = query.queryStationBoard()
+			self.boardTrains = MOTCQuery.shared.queryStationBoard(stationCode: self.currentStationCode)
 			self.filterOutBoard()
 			
 			DispatchQueue.main.async {
@@ -267,6 +269,44 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		locationServiceAlert.addAction(cancelAction)
 		
 		present(locationServiceAlert, animated: true, completion: nil)
+	}
+	
+	func checkLastViewStation() {
+		do {
+			lastViewStation = try context.fetch(Record.fetchRequest()) as? [Record]
+			if let lastViewStation = lastViewStation {
+				if(lastViewStation.count > 0) {
+					if let station = lastViewStation[lastViewStation.count - 1].lastViewStation {
+						self.currentStationCode = station
+					}
+					else {
+						print("recorded lastViewStation is nil")
+					}
+				}
+			}
+			else {
+				print("lastViewStation fetch returned nil")
+			}
+		} catch {
+			print("Error getting lastViewStation")
+		}
+	}
+	
+	func updateLastViewStation() {
+		var record: Record?
+		if(lastViewStation == nil || lastViewStation!.count == 0) {
+			record = Record(context: self.context)
+		}
+		else {
+			record = lastViewStation![lastViewStation!.count - 1]
+		}
+		record?.lastViewStation = self.currentStationCode
+		do {
+			try self.context.save()
+		}
+		catch {
+			print("Error saving lastViewStation")
+		}
 	}
 	
 	func checkInitial() -> Bool {
