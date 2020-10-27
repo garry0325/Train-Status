@@ -77,6 +77,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		segmentControl.selectedSegmentIndex = 2
 		segmentControl.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
 		
+		informationButton.layer.shadowColor = UIColor.white.cgColor
+		
 		// my banner ad id: ca-app-pub-5814041924860954/6968493215
 		// test banner ad id: ca-app-pub-3940256099942544/2934735716
 		self.informationButtonToAdBannerLayout = NSLayoutConstraint(item: informationButton!, attribute: .bottom, relatedBy: .equal, toItem: adBannerView, attribute: .top, multiplier: 1.0, constant: -15.0)
