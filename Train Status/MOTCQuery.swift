@@ -26,7 +26,6 @@ class MOTCQuery {
 	var urlConfig = URLSessionConfiguration.default
 	
 	init() {
-		print("MOTC initialized")
 		authDateFormatter = DateFormatter()
 		authDateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ww zzz"
 		authDateFormatter.locale = Locale(identifier: "en_US")

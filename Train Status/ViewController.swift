@@ -23,7 +23,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: change font +
 	// TODO: first time prompt + warnings +
 	// TODO: use core data +
-	// TODO: optimize class MOTCQuery so no need to create instance every time
+	// TODO: optimize class MOTCQuery so no need to create instance every time +
+	// TODO: read terms and conditions
 	// TODO: code optimization
 	// TODO: eliminate warnings
 	
@@ -57,6 +58,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet var informationButtonToSafeAreaLayout: NSLayoutConstraint!
 	var informationButtonToAdBannerLayout: NSLayoutConstraint?
 	
+	var displayAd = true
+	var needAdData: Array<Ad> = []
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -81,11 +85,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		self.adBannerView.adUnitID = "ca-app-pub-5814041924860954/6968493215"
 		self.adBannerView.rootViewController = self
 		
+		checkAdRemoval()
+		
 		if(checkInitial()) {
 			presentWelcomeWarning()
 		}
 		else {
-			checkLastViewStation()
+			fetchLastViewStation()
 			initialSetup()
 			checkLocationServicePermission()
 		}
@@ -95,7 +101,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	func initialSetup() {
-		self.adBannerView.load(GADRequest())
+		if(displayAd) {
+			self.adBannerView.load(GADRequest())
+		}
 		
 		dismissActivityIndicator()
 		
@@ -107,6 +115,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		NotificationCenter.default.addObserver(self, selector: #selector(backFromBackground), name: UIApplication.didBecomeActiveNotification, object: nil)
 		
 		_ = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(autoRefresh), userInfo: nil, repeats: true)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(removeAdSuccess), name: NSNotification.Name("RemoveAd"), object: nil)
 		
 		presentActivityIndicator()
 	}
@@ -271,7 +281,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		present(locationServiceAlert, animated: true, completion: nil)
 	}
 	
-	func checkLastViewStation() {
+	func fetchLastViewStation() {
 		do {
 			lastViewStation = try context.fetch(Record.fetchRequest()) as? [Record]
 			if let lastViewStation = lastViewStation {
@@ -288,7 +298,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 				print("lastViewStation fetch returned nil")
 			}
 		} catch {
-			print("Error getting lastViewStation")
+			print("Error fetching lastViewStation")
 		}
 	}
 	
@@ -358,6 +368,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			isUpdatingLocation = true
 		}
 		// if put 'else' here, the alertController would present unintended situation
+	}
+	
+	@objc func removeAdSuccess() {
+		let msg = displayAd ? "移除廣告":"復原廣告"
+		ErrorAlert.presentErrorAlert(title: msg, message: "")
+		
+		do {
+			needAdData = try context.fetch(Ad.fetchRequest()) as! [Ad]
+			needAdData[needAdData.count - 1].needAd = !displayAd
+			try self.context.save()
+		}
+		catch {
+			print("Error saving context remove ad")
+		}
+	}
+	
+	func checkAdRemoval() {
+		do {
+			needAdData = try context.fetch(Ad.fetchRequest()) as! [Ad]
+			if(needAdData.count > 0 && needAdData[needAdData.count - 1].needAd == false) {
+				print("No need ad")
+				displayAd = false
+			}
+			else {
+				if(needAdData.count == 0) {
+					let ad = Ad(context: self.context)
+					ad.needAd = true
+					try self.context.save()
+				}
+				print("Need Ad")
+				displayAd = true
+			}
+		} catch {
+			print("Error fetching or storing needAd")
+			displayAd = true
+		}
 	}
 }
 
