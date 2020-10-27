@@ -1,5 +1,5 @@
 //
-//  AcknowledgementViewController.swift
+//  AboutViewController.swift
 //  Train Status
 //
 //  Created by Garry Yeung on 2020/10/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AcknowledgementViewController: UIViewController {
+class AboutViewController: UIViewController {
 
 	@IBOutlet var versionLabel: UILabel!
 	

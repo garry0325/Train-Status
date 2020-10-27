@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C20AE75725456C1D0069DA50 /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75625456C1D0069DA50 /* AcknowledgementViewController.swift */; };
+		C20AE75725456C1D0069DA50 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75625456C1D0069DA50 /* AboutViewController.swift */; };
 		C20AE75C2545BFFA0069DA50 /* Initial+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */; };
 		C20AE75D2545BFFA0069DA50 /* Initial+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */; };
 		C20AE7692545CA170069DA50 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE7682545CA170069DA50 /* PersistentContainer.swift */; };
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		03B692625D4FBE53057EDE08 /* Pods_Train_Status.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Train_Status.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Status.release.xcconfig"; path = "Target Support Files/Pods-Train Status/Pods-Train Status.release.xcconfig"; sourceTree = "<group>"; };
-		C20AE75625456C1D0069DA50 /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
+		C20AE75625456C1D0069DA50 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataClass.swift"; path = "/Users/garry0325/Downloads/Swift/Train Status/Train Status/Initial+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataProperties.swift"; path = "/Users/garry0325/Downloads/Swift/Train Status/Train Status/Initial+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		C20AE7682545CA170069DA50 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 				C2740F552419F8D900F97C13 /* SceneDelegate.swift */,
 				C2740F572419F8D900F97C13 /* ViewController.swift */,
 				C2521D4B241A19C900076347 /* StationSelectionViewController.swift */,
-				C20AE75625456C1D0069DA50 /* AcknowledgementViewController.swift */,
+				C20AE75625456C1D0069DA50 /* AboutViewController.swift */,
 				C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */,
 				C2740F6A2419F93200F97C13 /* MOTCQuery.swift */,
 				C2521D4D241A1B1300076347 /* Constant.swift */,
@@ -243,7 +243,7 @@
 				C21B1FFF2543FF8100E9BEB9 /* ErrorHandling.swift in Sources */,
 				C2521D4E241A1B1300076347 /* Constant.swift in Sources */,
 				C2740F582419F8D900F97C13 /* ViewController.swift in Sources */,
-				C20AE75725456C1D0069DA50 /* AcknowledgementViewController.swift in Sources */,
+				C20AE75725456C1D0069DA50 /* AboutViewController.swift in Sources */,
 				C2740F6B2419F93200F97C13 /* MOTCQuery.swift in Sources */,
 				C2521D4C241A19C900076347 /* StationSelectionViewController.swift in Sources */,
 				C20AE7692545CA170069DA50 /* PersistentContainer.swift in Sources */,

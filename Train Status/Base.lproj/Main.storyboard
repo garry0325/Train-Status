@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="azf-WZ-LIj">
-                                <rect key="frame" x="0.0" y="93" width="414" height="643"/>
+                                <rect key="frame" x="0.0" y="92.666666666666686" width="414" height="643.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardTrain" id="3Ab-Lr-Kvb" customClass="TrainBoardCell" customModule="Train_Status" customModuleProvider="target">
@@ -71,7 +71,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晚43分" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Ou9-hg-b9e">
-                                                    <rect key="frame" x="343.33333333333331" y="10.666666666666664" width="62.666666666666686" height="23"/>
+                                                    <rect key="frame" x="343.33333333333331" y="10.666666666666664" width="63" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                     <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZH-VF-CLi">
-                                <rect key="frame" x="52.666666666666657" y="11" width="30" height="42"/>
+                                <rect key="frame" x="52.666666666666657" y="10.666666666666664" width="30" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,7 +146,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8n-cS-oqh">
-                                <rect key="frame" x="378" y="21" width="20" height="22"/>
+                                <rect key="frame" x="378" y="20.666666666666668" width="20" height="22.000000000000004"/>
                                 <color key="tintColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="gobackward" catalog="system"/>
                                 <connections>
@@ -154,13 +154,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開往" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjC-Zc-Ktv">
-                                <rect key="frame" x="86" y="62.999999999999993" width="35" height="20.666666666666664"/>
+                                <rect key="frame" x="86" y="62.666666666666664" width="35" height="20.666666666666664"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="車種" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDp-At-x1b">
-                                <rect key="frame" x="160.66666666666666" y="62.999999999999993" width="35" height="20.666666666666664"/>
+                                <rect key="frame" x="160.66666666666666" y="62.666666666666664" width="35" height="20.666666666666664"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -178,7 +178,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Y68-yl-rDK">
-                                <rect key="frame" x="379" y="22" width="20" height="20"/>
+                                <rect key="frame" x="379" y="21.666666666666668" width="20" height="20.000000000000004"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nMd-3c-5qk">
@@ -194,13 +194,13 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="車次" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KED-3w-VDd">
-                                <rect key="frame" x="24" y="62.999999999999993" width="35" height="20.666666666666664"/>
+                                <rect key="frame" x="24" y="62.666666666666664" width="35" height="20.666666666666664"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="備註" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmc-fp-Z6X">
-                                <rect key="frame" x="354" y="62.999999999999993" width="37" height="20.666666666666664"/>
+                                <rect key="frame" x="354" y="62.666666666666664" width="37" height="20.666666666666664"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="btS-dL-uPn"/>
                                 </constraints>
@@ -227,7 +227,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="bold"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7aK-zL-7dZ" kind="popoverPresentation" identifier="Acknowledgement" popoverAnchorView="1Rn-g0-OAt" id="ydD-4j-4ou">
+                                    <segue destination="7aK-zL-7dZ" kind="popoverPresentation" identifier="About" popoverAnchorView="1Rn-g0-OAt" id="ydD-4j-4ou">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -377,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="864" y="137"/>
         </scene>
-        <!--Acknowledgement View Controller-->
+        <!--About View Controller-->
         <scene sceneID="pUN-W6-IOh">
             <objects>
-                <viewController id="7aK-zL-7dZ" customClass="AcknowledgementViewController" customModule="Train_Status" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7aK-zL-7dZ" customClass="AboutViewController" customModule="Train_Status" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4sh-Kc-R5q">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

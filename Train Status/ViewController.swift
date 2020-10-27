@@ -478,7 +478,7 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
 		}
 		
 		else {
-			let destination = segue.destination as! AcknowledgementViewController
+			let destination = segue.destination as! AboutViewController
 			
 			destination.popoverPresentationController?.delegate = self
 			
