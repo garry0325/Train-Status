@@ -95,8 +95,8 @@
 				C2740F532419F8D900F97C13 /* AppDelegate.swift */,
 				C2740F552419F8D900F97C13 /* SceneDelegate.swift */,
 				C2740F572419F8D900F97C13 /* ViewController.swift */,
-				C210ACE2255D218800EE8962 /* RouteDetailTableViewCell.swift */,
 				C210ACE1255D218700EE8962 /* RouteDetailViewController.swift */,
+				C210ACE2255D218800EE8962 /* RouteDetailTableViewCell.swift */,
 				C2521D4B241A19C900076347 /* StationSelectionViewController.swift */,
 				C20AE75625456C1D0069DA50 /* AboutViewController.swift */,
 				C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */,
@@ -412,12 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KVJJ645N39;
+				DEVELOPMENT_TEAM = 3WYLUPPDAG;
 				INFOPLIST_FILE = "Train Status/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Garry.Train-Status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -431,12 +432,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KVJJ645N39;
+				DEVELOPMENT_TEAM = 3WYLUPPDAG;
 				INFOPLIST_FILE = "Train Status/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Garry.Train-Status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

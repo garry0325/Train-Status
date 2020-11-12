@@ -49,7 +49,7 @@ class RouteDetailViewController: UIViewController {
 		routeDetailTableView.dataSource = self
 		
 		routeDetailTableView.contentInset = UIEdgeInsets(top: 30.0, left: 0.0, bottom: 30.0, right: 0.0)
-
+		
 		configureInitialInformation()
 		
 		constructStationSequence()
