@@ -17,11 +17,11 @@ class AboutViewController: UIViewController {
 	let pattern = [1,1,2,1,0,1,2,2,0]
 	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		
 		versionLabel.text = "版本：" + (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
-    }
-    
+	}
+	
 	@IBAction func removeAdPressed(_ sender: UIButton) {
 		print("removeAd \(sender.tag)")
 		if(count < pattern.count) {
@@ -37,14 +37,14 @@ class AboutViewController: UIViewController {
 		}
 	}
 	
-    /*
-    // MARK: - Navigation
+	/*
+	// MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	// In a storyboard-based application, you will often want to do a little preparation before navigation
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		// Get the new view controller using segue.destination.
+		// Pass the selected object to the new view controller.
+	}
+	*/
 
 }

@@ -11,6 +11,9 @@
 		C20AE75C2545BFFA0069DA50 /* Initial+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */; };
 		C20AE75D2545BFFA0069DA50 /* Initial+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */; };
 		C20AE7692545CA170069DA50 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE7682545CA170069DA50 /* PersistentContainer.swift */; };
+		C210ACDF255D214000EE8962 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210ACDE255D214000EE8962 /* Classes.swift */; };
+		C210ACE3255D218800EE8962 /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210ACE1255D218700EE8962 /* RouteDetailViewController.swift */; };
+		C210ACE4255D218800EE8962 /* RouteDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210ACE2255D218800EE8962 /* RouteDetailTableViewCell.swift */; };
 		C21B1FFF2543FF8100E9BEB9 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */; };
 		C23DF23A241A4ADE00BD0B1B /* TrainBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */; };
 		C2521D4C241A19C900076347 /* StationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2521D4B241A19C900076347 /* StationSelectionViewController.swift */; };
@@ -34,6 +37,9 @@
 		C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataClass.swift"; path = "/Users/garry0325/Downloads/Swift/Train Status/Train Status/Initial+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataProperties.swift"; path = "/Users/garry0325/Downloads/Swift/Train Status/Train Status/Initial+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		C20AE7682545CA170069DA50 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		C210ACDE255D214000EE8962 /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		C210ACE1255D218700EE8962 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
+		C210ACE2255D218800EE8962 /* RouteDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBoardCell.swift; sourceTree = "<group>"; };
 		C2521D4B241A19C900076347 /* StationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSelectionViewController.swift; sourceTree = "<group>"; };
@@ -89,10 +95,13 @@
 				C2740F532419F8D900F97C13 /* AppDelegate.swift */,
 				C2740F552419F8D900F97C13 /* SceneDelegate.swift */,
 				C2740F572419F8D900F97C13 /* ViewController.swift */,
+				C210ACE2255D218800EE8962 /* RouteDetailTableViewCell.swift */,
+				C210ACE1255D218700EE8962 /* RouteDetailViewController.swift */,
 				C2521D4B241A19C900076347 /* StationSelectionViewController.swift */,
 				C20AE75625456C1D0069DA50 /* AboutViewController.swift */,
 				C23DF239241A4ADE00BD0B1B /* TrainBoardCell.swift */,
 				C2740F6A2419F93200F97C13 /* MOTCQuery.swift */,
+				C210ACDE255D214000EE8962 /* Classes.swift */,
 				C2521D4D241A1B1300076347 /* Constant.swift */,
 				C21B1FFE2543FF8100E9BEB9 /* ErrorHandling.swift */,
 				C2740F592419F8D900F97C13 /* Main.storyboard */,
@@ -247,11 +256,14 @@
 				C2740F6B2419F93200F97C13 /* MOTCQuery.swift in Sources */,
 				C2521D4C241A19C900076347 /* StationSelectionViewController.swift in Sources */,
 				C20AE7692545CA170069DA50 /* PersistentContainer.swift in Sources */,
+				C210ACE3255D218800EE8962 /* RouteDetailViewController.swift in Sources */,
 				C2740F542419F8D900F97C13 /* AppDelegate.swift in Sources */,
+				C210ACDF255D214000EE8962 /* Classes.swift in Sources */,
 				C23DF23A241A4ADE00BD0B1B /* TrainBoardCell.swift in Sources */,
 				C20AE75D2545BFFA0069DA50 /* Initial+CoreDataClass.swift in Sources */,
 				C2740F5E2419F8D900F97C13 /* Train_Status.xcdatamodeld in Sources */,
 				C2740F562419F8D900F97C13 /* SceneDelegate.swift in Sources */,
+				C210ACE4255D218800EE8962 /* RouteDetailTableViewCell.swift in Sources */,
 				C20AE75C2545BFFA0069DA50 /* Initial+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

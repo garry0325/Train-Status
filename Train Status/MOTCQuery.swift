@@ -77,7 +77,7 @@ class MOTCQuery {
 			else if let response = response as? HTTPURLResponse,
 				let data = data {
 				if(response.statusCode == 200) {
-					let rawReturned = try? (JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]])
+					let rawReturned = try? (JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]])
 					for rawTrain in rawReturned! {
 						let train = rawTrain as [String: Any]
 						
@@ -252,44 +252,137 @@ class MOTCQuery {
 		
 		return trainList
 	}
-}
-
-class Train {
-	let trainType: String
-	let trainNumber: String
-	let endingStation: String
-	let direction: String
-	let trainLine: String
-	let departureTime: Date
-	let delayTime: Int
-	let departed: Bool
 	
-	let degreeOfIndicator: Int
-	
-	init(type: String, number: String, ending: String, direction: String, line: String, departure: Date, delay: Int, degreeOfIndicator: Int, departed: Bool) {
-		self.trainType			= type
-		self.trainNumber		= number
-		self.endingStation		= ending
-		self.direction			= direction
-		self.trainLine			= line
-		self.departureTime		= departure
-		self.delayTime			= delay
-		self.degreeOfIndicator	= degreeOfIndicator
-		self.departed			= departed
+	func queryTrainRoute(trainNumber: String) -> TrainRoute {
+		var trainRoute: TrainRoute?
+		let semaphore = DispatchSemaphore(value: 0)
+		
+		authentication()
+		
+		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v3/Rail/TRA/DailyTrainTimetable/Today/TrainNo/\(trainNumber)?$format=JSON")!
+		var request = URLRequest(url: url)
+		request.setValue(authTimeString, forHTTPHeaderField: "x-date")
+		request.setValue(authorization, forHTTPHeaderField: "Authorization")
+		let session = URLSession(configuration: urlConfig)
+		let task = session.dataTask(with: request) { (data, response, error) in
+			if let error = error {
+				print("Error: \(error.localizedDescription)")
+				
+				DispatchQueue.main.async {
+					ErrorAlert.presentErrorAlert(title: "網路錯誤", message: "網路連線不穩 請稍後再試")
+				}
+			}
+			else if let response = response as? HTTPURLResponse,
+				let data = data {
+				if(response.statusCode == 200) {
+					let rawReturned = (try? (JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]))
+					let trainTimetables = rawReturned!["TrainTimetables"] as! [[String: Any]]
+					
+					if(trainTimetables.count > 1) {
+						DispatchQueue.main.async {
+							// TODO: remove the following
+							ErrorAlert.presentErrorAlert(title: "錯誤", message: "路徑查詢有多組回傳")
+						}
+					}
+					
+					let trainInfo = trainTimetables[0]["TrainInfo"] as! [String: Any]
+					let trainStopTimes = trainTimetables[0]["StopTimes"] as! [[String: Any]]
+					var trainLine: String?
+					
+					switch trainInfo["TripLine"] as! Int {
+					case 0:
+						trainLine = ""
+					case 1:
+						trainLine = "山線"
+					case 2:
+						trainLine = "海線"
+					default:
+						trainLine = ""
+					}
+					
+					trainRoute = TrainRoute(trainNumber: trainInfo["TrainNo"] as! String, trainType: (trainInfo["TrainTypeName"] as! [String: String])["Zh_tw"]!, endingStation: (trainInfo["EndingStationName"] as! [String: String])["Zh_tw"]!, direction: trainInfo["Direction"] as! Int, trainLine: trainLine!, wheelChair: trainInfo["WheelChairFlag"] as! Bool, bike: trainInfo["BikeFlag"] as! Bool)
+					
+					var routeStations: [Station] = []
+					
+					for stop in trainStopTimes {
+						let station = Station(stationId: stop["StationID"] as! String, stationName: (stop["StationName"] as! [String: String])["Zh_tw"]!, stopSequence: stop["StopSequence"] as! Int, arrivalTime: stop["ArrivalTime"] as! String, departureTime: stop["DepartureTime"] as! String)
+						
+						routeStations.append(station)
+					}
+					
+					routeStations.sort(by: {$0.stopSequence < $1.stopSequence})
+					
+					routeStations[0].isDepartureStation = true
+					routeStations.last!.isDestinationStation = true
+					
+					trainRoute?.routeStations = routeStations
+				}
+				else {
+					print("Route stop sequence status code \(response.statusCode)")
+				}
+			}
+			else {
+				print("Error getting route stop sequences")
+			}
+			semaphore.signal()
+		}
+		task.resume()
+		semaphore.wait()
+		
+		
+		return trainRoute!
 	}
-}
-
-enum TrainClass {
-	static let None			= ""
-	static let Standard		= "標準廂"
-	static let Business		= "商務廂"
-	static let NonReserved	= "自由座"
-	static let Taroko		= "太魯閣"
-	static let Puyuma		= "普悠瑪"
-	static let TzeChiang	= "自強"
-	static let ChuKuang		= "莒光"
-	static let FuXing		= "復興"
-	static let Local		= "區間"
-	static let LocalExpress	= "區間快"
-	static let Ordinary		= "普快"
+	
+	func queryRealTimeTrainPosition(trainNumber: String) -> TrainLivePosition {
+		var trainLivePosition: TrainLivePosition?
+		let semaphore = DispatchSemaphore(value: 0)
+		
+		authentication()
+		
+		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v3/Rail/TRA/TrainLiveBoard/TrainNo/\(trainNumber)?$format=JSON")!
+		var request = URLRequest(url: url)
+		request.setValue(authTimeString, forHTTPHeaderField: "x-date")
+		request.setValue(authorization, forHTTPHeaderField: "Authorization")
+		let session = URLSession(configuration: urlConfig)
+		let task = session.dataTask(with: request) { (data, response, error) in
+			if let error = error {
+				print("Error: \(error.localizedDescription)")
+				
+				DispatchQueue.main.async {
+					ErrorAlert.presentErrorAlert(title: "網路錯誤", message: "網路連線不穩 請稍後再試")
+				}
+			}
+			else if let response = response as? HTTPURLResponse,
+				let data = data {
+				if(response.statusCode == 200) {
+					let rawReturned = (try? (JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]))
+					let trainLiveBoards = rawReturned!["TrainLiveBoards"] as! [[String: Any]]
+					
+					if(trainLiveBoards.count > 1) {
+						DispatchQueue.main.async {
+							// TODO: remove the following
+							ErrorAlert.presentErrorAlert(title: "錯誤", message: "即時位置查詢有多組回傳")
+						}
+					}
+					else if(trainLiveBoards.count == 0) {
+						trainLivePosition = TrainLivePosition(stationId: "none", stationName: "none", stationStatus: .None, delayTime: -1)
+					}
+					else {
+					trainLivePosition = TrainLivePosition(stationId: trainLiveBoards[0]["StationID"] as! String, stationName: (trainLiveBoards[0]["StationName"] as! [String: String])["Zh_tw"]!, stationStatus: TrainLivePosition.Status(rawValue: trainLiveBoards[0]["TrainStationStatus"] as! Int)!, delayTime: trainLiveBoards[0]["DelayTime"] as! Int)
+					}
+				}
+				else {
+					print("Train live position sequence status code \(response.statusCode)")
+				}
+			}
+			else {
+				print("Error getting train live position")
+			}
+			semaphore.signal()
+		}
+		task.resume()
+		semaphore.wait()
+		
+		return trainLivePosition!
+	}
 }

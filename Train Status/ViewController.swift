@@ -17,9 +17,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	// TODO: no internet connection prompt +
 	// TODO: no server response prompt
-	// TODO: Acknowledgement -> + https://motc-ptx-api-documentation.gitbook.io/motc-ptx-api-documentation/hui-yuan-shen-qing/membertype
-	// TODO: 免責聲明 +
-	// TODO: app icon
+	// TODO: source -> + https://motc-ptx-api-documentation.gitbook.io/motc-ptx-api-documentation/hui-yuan-shen-qing/membertype
+	// TODO: app icon +
 	// TODO: change font +
 	// TODO: first time prompt + warnings +
 	// TODO: use core data +
@@ -27,6 +26,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: read terms and conditions
 	// TODO: code optimization
 	// TODO: eliminate warnings
+	// TODO: AdMob
 	
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 	var lastViewStation: Array<Record>?
@@ -51,8 +51,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	var currentStationCode = "1000" {
 		didSet {
-			stationButton.setTitle(TRA.Station[currentStationCode] ?? "", for: .normal)
-			updateLastViewStation()
+			if(currentStationCode == "-1") {
+				stationButton.setTitle("附近沒有車站", for: .normal)
+			}
+			else {
+				stationButton.setTitle(TRA.Station[currentStationCode] ?? "", for: .normal)
+				updateLastViewStation()
+			}
 		}
 	}
 	@IBOutlet var informationButtonToSafeAreaLayout: NSLayoutConstraint!
@@ -72,10 +77,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		boardTableView.delegate = self
 		boardTableView.dataSource = self
 		
-		boardTableView.allowsSelection = false
+		//boardTableView.allowsSelection = false
 		
 		segmentControl.selectedSegmentIndex = 2
 		segmentControl.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
+		
+		stationButton.titleLabel?.adjustsFontSizeToFitWidth = true
 		
 		informationButton.layer.shadowColor = UIColor.white.cgColor
 		
@@ -163,7 +170,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 					address = address + (placemark.subAdministrativeArea ?? "")
 					address = address + (placemark.locality ?? "")
 					
-					print(address)
+					//print(address)
 				}
 			}
 		}
@@ -187,10 +194,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			}
 		}
 		
-		locationButton.imageView?.tintColor = .systemBlue
-		locationButton.tintColor = .systemBlue
-		currentStationCode = nearestStation
-		queryMOTC()
+		if(minimumDistance == 1000000) {
+			locationButton.imageView?.tintColor = .gray
+			locationButton.tintColor = .gray
+			currentStationCode = "-1"
+			self.boardTrains = []
+			self.boardTableView.reloadData()
+		} else {
+			locationButton.imageView?.tintColor = .systemBlue
+			locationButton.tintColor = .systemBlue
+			currentStationCode = nearestStation
+			queryMOTC()
+		}
 	}
 	
 	func queryMOTC() {
@@ -441,6 +456,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let routeDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "RouteDetailVC") as! RouteDetailViewController
+		
+		let sourceView = (tableView.cellForRow(at: indexPath) as! TrainBoardCell).typeLabel
+		let sourceRect = CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: (sourceView?.frame.size)!)
+		
+		routeDetailVC.train = boardTrains[indexPath.row]
+		routeDetailVC.currentStationCode = currentStationCode
+		
+		routeDetailVC.modalPresentationStyle = .popover
+		routeDetailVC.preferredContentSize = CGSize(width: 220.0, height: 500.0)
+		routeDetailVC.popoverPresentationController?.delegate = self
+		routeDetailVC.popoverPresentationController?.sourceView = sourceView
+		routeDetailVC.popoverPresentationController?.sourceRect = sourceRect
+		routeDetailVC.popoverPresentationController?.permittedArrowDirections = .left
+		
+		self.present(routeDetailVC, animated: true, completion: nil)
+	}
+	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		let tempCell = cell as! TrainBoardCell
 		
@@ -473,13 +507,14 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
 			
 			destination.popoverPresentationController?.delegate = self
 			
+			let positionInList = (TRA.stationPositionInList[currentStationCode] ?? TRA.stationPositionInList["1000"])!
 			destination.preferredContentSize = CGSize(width: 200, height: 350)
-			destination.regionAutoscrollPosition = TRA.stationPositionInList[currentStationCode]![0]
-			destination.stationAutoscrollPosition = TRA.stationPositionInList[currentStationCode]![1]
-			destination.selectedRegion = TRA.stationPositionInList[currentStationCode]![0]
+			destination.regionAutoscrollPosition = positionInList[0]
+			destination.stationAutoscrollPosition = positionInList[1]
+			destination.selectedRegion = positionInList[0]
 		}
 		
-		else {
+		else if(segue.identifier == "About") {
 			let destination = segue.destination as! AboutViewController
 			
 			destination.popoverPresentationController?.delegate = self
