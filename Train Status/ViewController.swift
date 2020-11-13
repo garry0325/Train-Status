@@ -83,12 +83,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		
 		informationButton.layer.shadowColor = UIColor.white.cgColor
 		
-		// my banner ad id: ca-app-pub-5814041924860954/6968493215
-		// test banner ad id: ca-app-pub-3940256099942544/2934735716
-		
 		configureAdBanner()
-		
-		// F413ED9C-BBA4-4E3D-803F-84D6789B0B93
 		
 		checkAdRemoval()
 		
@@ -398,6 +393,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		adBannerView.rootViewController = self
 		
 		informationButtonToAdBannerLayout = NSLayoutConstraint(item: informationButton!, attribute: .bottom, relatedBy: .equal, toItem: adBannerView, attribute: .top, multiplier: 1.0, constant: -15.0)
+		
+		// my new banner ad id: ca-app-pub-5814041924860954/6593980317
+		// test banner ad id: ca-app-pub-3940256099942544/2934735716
+		// F413ED9C-BBA4-4E3D-803F-84D6789B0B93
 	}
 	
 	@objc func removeAdSuccess() {

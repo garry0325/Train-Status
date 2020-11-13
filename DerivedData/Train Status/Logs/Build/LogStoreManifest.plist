@@ -108,6 +108,40 @@
 			<key>uniqueIdentifier</key>
 			<string>60D806DF-4291-4433-B726-65399AAD9D05</string>
 		</dict>
+		<key>69FDFCE7-2F27-475F-8BB9-7D6663A6B270</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>69FDFCE7-2F27-475F-8BB9-7D6663A6B270.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Train Status project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Train Status</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Train Status</string>
+			<key>timeStartedRecording</key>
+			<real>626974130.30182898</real>
+			<key>timeStoppedRecording</key>
+			<real>626974134.57758796</real>
+			<key>title</key>
+			<string>Build Train Status</string>
+			<key>uniqueIdentifier</key>
+			<string>69FDFCE7-2F27-475F-8BB9-7D6663A6B270</string>
+		</dict>
 		<key>72AB925D-8A94-4B19-B1BC-6C2B318B52A8</key>
 		<dict>
 			<key>className</key>
