@@ -37,9 +37,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet var refreshButton: UIButton!
 	@IBOutlet var boardTableView: UITableView!
 	
-	@IBOutlet var adBannerView: GADBannerView!
-	
-	
 	@IBOutlet var segmentControl: UISegmentedControl!
 	@IBOutlet var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet var informationButton: UIButton!
@@ -63,21 +60,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet var informationButtonToSafeAreaLayout: NSLayoutConstraint!
 	var informationButtonToAdBannerLayout: NSLayoutConstraint?
 	
+	var adBannerView: GADBannerView!
 	var displayAd = true
 	var needAdData: Array<Ad> = []
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		UserDefaults.standard.set(["zh_TW"], forKey: "AppleLanguages")
+		//UserDefaults.standard.set(["zh_TW"], forKey: "AppleLanguages")
 		
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		
 		boardTableView.delegate = self
 		boardTableView.dataSource = self
-		
-		//boardTableView.allowsSelection = false
 		
 		segmentControl.selectedSegmentIndex = 2
 		segmentControl.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
@@ -88,11 +85,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		
 		// my banner ad id: ca-app-pub-5814041924860954/6968493215
 		// test banner ad id: ca-app-pub-3940256099942544/2934735716
-		self.informationButtonToAdBannerLayout = NSLayoutConstraint(item: informationButton!, attribute: .bottom, relatedBy: .equal, toItem: adBannerView, attribute: .top, multiplier: 1.0, constant: -15.0)
-		self.adBannerView.isHidden = true
-		self.adBannerView.delegate = self
-		self.adBannerView.adUnitID = "ca-app-pub-5814041924860954/6968493215"
-		self.adBannerView.rootViewController = self
+		
+		configureAdBanner()
+		
+		// F413ED9C-BBA4-4E3D-803F-84D6789B0B93
 		
 		checkAdRemoval()
 		
@@ -387,6 +383,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		// if put 'else' here, the alertController would present unintended situation
 	}
 	
+	func configureAdBanner() {
+		let adSize = (Int.random(in: 0...3) == 3) ? kGADAdSizeLargeBanner:kGADAdSizeBanner
+		
+		adBannerView = GADBannerView(adSize: adSize)
+		
+		adBannerView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(adBannerView)
+		view.addConstraints([NSLayoutConstraint(item: adBannerView!, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0), NSLayoutConstraint(item: adBannerView!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0)])
+		self.adBannerView.isHidden = true
+		adBannerView.delegate = self
+		adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		#warning("test banner id NOTICE THE NUMBERS BEFORE SLASH")
+		adBannerView.rootViewController = self
+		
+		informationButtonToAdBannerLayout = NSLayoutConstraint(item: informationButton!, attribute: .bottom, relatedBy: .equal, toItem: adBannerView, attribute: .top, multiplier: 1.0, constant: -15.0)
+	}
+	
 	@objc func removeAdSuccess() {
 		let msg = displayAd ? "移除廣告":"復原廣告"
 		ErrorAlert.presentErrorAlert(title: msg, message: "")
@@ -546,7 +559,7 @@ extension ViewController: GADBannerViewDelegate {
 	}
 	
 	func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-		print("Ad failed to load. \(error.localizedDescription)")
+		print("Ad failed to load. \(error.localizedDescription) code: \(error.code)")
 		
 		informationButtonToSafeAreaLayout.isActive = true
 		informationButtonToAdBannerLayout?.isActive = false

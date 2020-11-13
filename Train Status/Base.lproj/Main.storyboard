@@ -227,13 +227,6 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wau-p2-yaN" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="uQn-AJ-ZQU"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-g0-OAt">
                                 <rect key="frame" x="320" y="612" width="40" height="40"/>
                                 <constraints>
@@ -274,7 +267,6 @@
                             <constraint firstItem="gmc-fp-Z6X" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="1.8" id="9U1-IX-qZG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Rn-g0-OAt" secondAttribute="trailing" constant="15" id="DSh-Tz-zl1"/>
                             <constraint firstItem="gmc-fp-Z6X" firstAttribute="centerY" secondItem="bFd-Cc-pAc" secondAttribute="centerY" id="DXj-6H-fO6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wau-p2-yaN" secondAttribute="trailing" id="EvL-TG-wcV"/>
                             <constraint firstItem="nMd-3c-5qk" firstAttribute="leading" secondItem="HZH-VF-CLi" secondAttribute="trailing" constant="5" id="FI0-Ws-ykQ"/>
                             <constraint firstItem="ksw-pe-xuD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="FTc-EB-A9f"/>
                             <constraint firstItem="KED-3w-VDd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.2" id="FhK-xZ-b9g"/>
@@ -282,7 +274,6 @@
                             <constraint firstItem="nMd-3c-5qk" firstAttribute="centerY" secondItem="HZH-VF-CLi" secondAttribute="centerY" id="RMr-e5-7xn"/>
                             <constraint firstAttribute="trailing" secondItem="DEX-Ek-Fl2" secondAttribute="trailing" id="RQE-SM-3xb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1Rn-g0-OAt" secondAttribute="bottom" constant="15" id="RRi-fw-uXY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wau-p2-yaN" secondAttribute="bottom" id="Rln-fd-mEb"/>
                             <constraint firstItem="KED-3w-VDd" firstAttribute="top" secondItem="HZH-VF-CLi" secondAttribute="bottom" constant="10" id="Rt2-lp-eZr"/>
                             <constraint firstAttribute="trailing" secondItem="azf-WZ-LIj" secondAttribute="trailing" id="U36-ZM-Snd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c8n-cS-oqh" secondAttribute="trailing" constant="16" id="Ush-UB-zIo"/>
@@ -293,7 +284,6 @@
                             <constraint firstItem="HZH-VF-CLi" firstAttribute="leading" secondItem="ksw-pe-xuD" secondAttribute="trailing" constant="7.5" id="bFI-yJ-Edr"/>
                             <constraint firstItem="DEX-Ek-Fl2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="etb-0k-uSA"/>
                             <constraint firstAttribute="bottom" secondItem="azf-WZ-LIj" secondAttribute="bottom" id="fHc-ty-VIO"/>
-                            <constraint firstItem="Wau-p2-yaN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ffJ-SY-ube"/>
                             <constraint firstItem="Y68-yl-rDK" firstAttribute="leading" secondItem="nMd-3c-5qk" secondAttribute="trailing" constant="15" id="grB-Ke-Bqc"/>
                             <constraint firstItem="IjC-Zc-Ktv" firstAttribute="centerY" secondItem="KED-3w-VDd" secondAttribute="centerY" id="iCy-g3-R69"/>
                             <constraint firstItem="azf-WZ-LIj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lsz-JJ-6PV"/>
@@ -306,7 +296,6 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="Y68-yl-rDK" id="e43-AQ-JAg"/>
-                        <outlet property="adBannerView" destination="Wau-p2-yaN" id="Tcp-11-ENG"/>
                         <outlet property="boardTableView" destination="azf-WZ-LIj" id="Ul9-bB-nDa"/>
                         <outlet property="informationButton" destination="1Rn-g0-OAt" id="taC-Fi-TjD"/>
                         <outlet property="informationButtonToSafeAreaLayout" destination="RRi-fw-uXY" id="vrn-NF-oVq"/>
@@ -638,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wbk-6Q-GSt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="450" y="712"/>
+            <point key="canvasLocation" x="445" y="699"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="pUN-W6-IOh">
@@ -784,9 +773,6 @@ Cg
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

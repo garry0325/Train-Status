@@ -278,13 +278,13 @@ class MOTCQuery {
 					let rawReturned = (try? (JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]))
 					let trainTimetables = rawReturned!["TrainTimetables"] as! [[String: Any]]
 					
-					/*
+					
 					if(trainTimetables.count > 1) {
 						DispatchQueue.main.async {
 							// TODO: remove the following
 							ErrorAlert.presentErrorAlert(title: "錯誤", message: "路徑查詢有多組回傳")
 						}
-					}*/
+					}
 					
 					let trainInfo = trainTimetables[0]["TrainInfo"] as! [String: Any]
 					let trainStopTimes = trainTimetables[0]["StopTimes"] as! [[String: Any]]
@@ -359,13 +359,13 @@ class MOTCQuery {
 					let rawReturned = (try? (JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]))
 					let trainLiveBoards = rawReturned!["TrainLiveBoards"] as! [[String: Any]]
 					
-					/*
+					
 					if(trainLiveBoards.count > 1) {
 						DispatchQueue.main.async {
 							// TODO: remove the following
 							ErrorAlert.presentErrorAlert(title: "錯誤", message: "即時位置查詢有多組回傳")
 						}
-					}*/
+					}
 					if(trainLiveBoards.count == 0) {
 						trainLivePosition = TrainLivePosition(stationId: "none", stationName: "none", stationStatus: .None, delayTime: -1)
 					}
