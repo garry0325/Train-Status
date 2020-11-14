@@ -17,6 +17,8 @@ class StationSelectionViewController: UIViewController {
 	var regionAutoscrollPosition = 0
 	var stationAutoscrollPosition = 0
 	
+	var selectedBlackBackgroundView: UIView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -24,6 +26,10 @@ class StationSelectionViewController: UIViewController {
 		regionTableView.dataSource = self
 		stationTableView.delegate = self
 		stationTableView.dataSource = self
+		
+		selectedBlackBackgroundView = UIView()
+		selectedBlackBackgroundView.backgroundColor = .black
+		
 		// Do any additional setup after loading the view.
 	}
 	
@@ -52,6 +58,8 @@ extension StationSelectionViewController: UITableViewDelegate, UITableViewDataSo
 		let identifier = (tableView == self.regionTableView) ? "Region":"Station"
 		let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! SelectionCell
 		
+		cell.selectedBackgroundView = selectedBlackBackgroundView
+		
 		if(identifier == "Region") {
 			cell.displayString = TRA.classifiedStationList[indexPath.row][0] as! String
 		}
@@ -59,6 +67,7 @@ extension StationSelectionViewController: UITableViewDelegate, UITableViewDataSo
 			cell.displayString = (TRA.classifiedStationList[selectedRegion][1] as! Array<String>)[indexPath.row]
 			cell.level = TRA.highlight[selectedRegion][indexPath.row]
 		}
+		
 		return cell
 	}
 	
@@ -89,13 +98,13 @@ class SelectionCell: UITableViewCell {
 		didSet {
 			switch level {
 			case 0:
-				displayUnit.textColor = .black
+				displayUnit.textColor = .white
 			case 1:
 				displayUnit.textColor = .systemBlue
 			case 2:
 				displayUnit.textColor = .systemOrange
 			default:
-				displayUnit.textColor = .black
+				displayUnit.textColor = .white
 			}
 		}
 	}
