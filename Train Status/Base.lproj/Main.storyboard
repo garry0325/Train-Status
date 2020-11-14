@@ -555,11 +555,15 @@
                                 </view>
                                 <blurEffect style="systemUltraThinMaterialDark"/>
                             </visualEffectView>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-hf-LJ0" userLabel="Darker View">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="350"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cgy-3s-Ysk">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="350"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Region" id="uwV-H6-c2b" customClass="SelectionCell" customModule="Train_Status" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Region" id="uwV-H6-c2b" customClass="SelectionCell" customModule="Train_Status" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="100" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uwV-H6-c2b" id="f0z-Mu-bgE">
@@ -589,7 +593,7 @@
                                 <rect key="frame" x="100" y="0.0" width="100" height="350"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Station" id="mZt-Jj-UAP" customClass="SelectionCell" customModule="Train_Status" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Station" id="mZt-Jj-UAP" customClass="SelectionCell" customModule="Train_Status" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="100" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZt-Jj-UAP" id="Rv6-Fp-tj6">
@@ -615,6 +619,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7H-ZS-bpX">
+                                <rect key="frame" x="200" y="-40" width="40" height="430"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="M80-s0-7nf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="-4" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npc-c6-toF">
                                 <rect key="frame" x="0.0" y="350" width="200" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -623,10 +645,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
-                                        <integer key="value" value="1"/>
+                                        <real key="value" value="0.80000000000000004"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
-                                        <integer key="value" value="8"/>
+                                        <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
                                         <size key="value" width="0.0" height="-4"/>
@@ -641,10 +663,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
-                                        <integer key="value" value="1"/>
+                                        <real key="value" value="0.80000000000000004"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
-                                        <integer key="value" value="8"/>
+                                        <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
                                         <size key="value" width="0.0" height="4"/>
@@ -653,26 +675,33 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fxx-gM-4ff"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="cgy-3s-Ysk" secondAttribute="bottom" id="260-Fh-mlP"/>
                             <constraint firstItem="ROO-eW-cZY" firstAttribute="top" secondItem="fxx-gM-4ff" secondAttribute="top" id="2GI-8L-eEb"/>
                             <constraint firstAttribute="bottom" secondItem="ROO-eW-cZY" secondAttribute="bottom" id="3jd-9D-Ww3"/>
                             <constraint firstItem="cgy-3s-Ysk" firstAttribute="leading" secondItem="Lw4-H9-a1I" secondAttribute="leading" id="6WG-PK-l4v"/>
                             <constraint firstItem="fxx-gM-4ff" firstAttribute="leading" secondItem="Yod-Ls-zYa" secondAttribute="leading" id="7Oq-IZ-6BF"/>
+                            <constraint firstItem="fxx-gM-4ff" firstAttribute="trailing" secondItem="U7H-ZS-bpX" secondAttribute="leading" id="A7O-Qq-I8G"/>
+                            <constraint firstItem="U7H-ZS-bpX" firstAttribute="top" secondItem="qje-eT-kgC" secondAttribute="top" id="BnS-05-Wnc"/>
                             <constraint firstItem="Yod-Ls-zYa" firstAttribute="trailing" secondItem="fxx-gM-4ff" secondAttribute="trailing" id="Dg2-SR-nig"/>
                             <constraint firstItem="qje-eT-kgC" firstAttribute="trailing" secondItem="fxx-gM-4ff" secondAttribute="trailing" id="HGE-Es-wAp"/>
+                            <constraint firstItem="Q2k-hf-LJ0" firstAttribute="top" secondItem="Yod-Ls-zYa" secondAttribute="top" id="Idr-dP-Fb7"/>
                             <constraint firstItem="cgy-3s-Ysk" firstAttribute="width" secondItem="Lw4-H9-a1I" secondAttribute="width" multiplier="0.5" id="PDD-gn-l3B"/>
                             <constraint firstItem="cgy-3s-Ysk" firstAttribute="top" secondItem="fxx-gM-4ff" secondAttribute="top" id="RZG-Su-EK4"/>
+                            <constraint firstItem="U7H-ZS-bpX" firstAttribute="bottom" secondItem="npc-c6-toF" secondAttribute="bottom" id="WtT-j5-Nmm"/>
                             <constraint firstItem="fxx-gM-4ff" firstAttribute="top" secondItem="qje-eT-kgC" secondAttribute="bottom" id="YID-Ec-Rh3"/>
+                            <constraint firstItem="Q2k-hf-LJ0" firstAttribute="leading" secondItem="Yod-Ls-zYa" secondAttribute="leading" id="YQ1-KF-02k"/>
                             <constraint firstItem="npc-c6-toF" firstAttribute="leading" secondItem="fxx-gM-4ff" secondAttribute="leading" id="ar8-XU-rDA"/>
                             <constraint firstAttribute="trailing" secondItem="ROO-eW-cZY" secondAttribute="trailing" id="ckO-9L-Fzx"/>
                             <constraint firstItem="Yod-Ls-zYa" firstAttribute="top" secondItem="fxx-gM-4ff" secondAttribute="top" id="f32-uR-GqQ"/>
+                            <constraint firstItem="Q2k-hf-LJ0" firstAttribute="trailing" secondItem="Yod-Ls-zYa" secondAttribute="trailing" id="inj-HJ-IeZ"/>
                             <constraint firstItem="npc-c6-toF" firstAttribute="top" secondItem="cgy-3s-Ysk" secondAttribute="bottom" id="k1Y-HW-b4s"/>
                             <constraint firstItem="ROO-eW-cZY" firstAttribute="width" secondItem="Lw4-H9-a1I" secondAttribute="width" multiplier="0.5" id="k7t-jG-8tK"/>
                             <constraint firstItem="fxx-gM-4ff" firstAttribute="trailing" secondItem="npc-c6-toF" secondAttribute="trailing" id="l6O-Dr-SwL"/>
                             <constraint firstItem="fxx-gM-4ff" firstAttribute="leading" secondItem="qje-eT-kgC" secondAttribute="leading" id="ur8-dV-7og"/>
                             <constraint firstItem="fxx-gM-4ff" firstAttribute="bottom" secondItem="Yod-Ls-zYa" secondAttribute="bottom" id="yQx-Q9-d8S"/>
+                            <constraint firstItem="Q2k-hf-LJ0" firstAttribute="bottom" secondItem="Yod-Ls-zYa" secondAttribute="bottom" id="zfB-Wr-4XZ"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="200" height="350"/>
