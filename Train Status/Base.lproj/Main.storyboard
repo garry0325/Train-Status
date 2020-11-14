@@ -630,10 +630,28 @@
                                         <real key="value" value="0.80000000000000004"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
-                                        <integer key="value" value="16"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
                                         <size key="value" width="-4" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nf-ta-RMZ">
+                                <rect key="frame" x="-40" y="-40" width="40" height="430"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="f7d-ct-8ts"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="4" height="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -677,6 +695,7 @@
                         <viewLayoutGuide key="safeArea" id="fxx-gM-4ff"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="9Nf-ta-RMZ" firstAttribute="top" secondItem="qje-eT-kgC" secondAttribute="top" id="08b-gU-1WW"/>
                             <constraint firstAttribute="bottom" secondItem="cgy-3s-Ysk" secondAttribute="bottom" id="260-Fh-mlP"/>
                             <constraint firstItem="ROO-eW-cZY" firstAttribute="top" secondItem="fxx-gM-4ff" secondAttribute="top" id="2GI-8L-eEb"/>
                             <constraint firstAttribute="bottom" secondItem="ROO-eW-cZY" secondAttribute="bottom" id="3jd-9D-Ww3"/>
@@ -685,6 +704,7 @@
                             <constraint firstItem="fxx-gM-4ff" firstAttribute="trailing" secondItem="U7H-ZS-bpX" secondAttribute="leading" id="A7O-Qq-I8G"/>
                             <constraint firstItem="U7H-ZS-bpX" firstAttribute="top" secondItem="qje-eT-kgC" secondAttribute="top" id="BnS-05-Wnc"/>
                             <constraint firstItem="Yod-Ls-zYa" firstAttribute="trailing" secondItem="fxx-gM-4ff" secondAttribute="trailing" id="Dg2-SR-nig"/>
+                            <constraint firstItem="9Nf-ta-RMZ" firstAttribute="bottom" secondItem="npc-c6-toF" secondAttribute="bottom" id="EaE-2Y-ItN"/>
                             <constraint firstItem="qje-eT-kgC" firstAttribute="trailing" secondItem="fxx-gM-4ff" secondAttribute="trailing" id="HGE-Es-wAp"/>
                             <constraint firstItem="Q2k-hf-LJ0" firstAttribute="top" secondItem="Yod-Ls-zYa" secondAttribute="top" id="Idr-dP-Fb7"/>
                             <constraint firstItem="cgy-3s-Ysk" firstAttribute="width" secondItem="Lw4-H9-a1I" secondAttribute="width" multiplier="0.5" id="PDD-gn-l3B"/>
@@ -693,6 +713,7 @@
                             <constraint firstItem="fxx-gM-4ff" firstAttribute="top" secondItem="qje-eT-kgC" secondAttribute="bottom" id="YID-Ec-Rh3"/>
                             <constraint firstItem="Q2k-hf-LJ0" firstAttribute="leading" secondItem="Yod-Ls-zYa" secondAttribute="leading" id="YQ1-KF-02k"/>
                             <constraint firstItem="npc-c6-toF" firstAttribute="leading" secondItem="fxx-gM-4ff" secondAttribute="leading" id="ar8-XU-rDA"/>
+                            <constraint firstItem="9Nf-ta-RMZ" firstAttribute="trailing" secondItem="fxx-gM-4ff" secondAttribute="leading" id="bK4-eK-xLF"/>
                             <constraint firstAttribute="trailing" secondItem="ROO-eW-cZY" secondAttribute="trailing" id="ckO-9L-Fzx"/>
                             <constraint firstItem="Yod-Ls-zYa" firstAttribute="top" secondItem="fxx-gM-4ff" secondAttribute="top" id="f32-uR-GqQ"/>
                             <constraint firstItem="Q2k-hf-LJ0" firstAttribute="trailing" secondItem="Yod-Ls-zYa" secondAttribute="trailing" id="inj-HJ-IeZ"/>
