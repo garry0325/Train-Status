@@ -144,6 +144,7 @@ extension RouteDetailViewController: UITableViewDelegate, UITableViewDataSource 
 		cell.departTime = trainRoute!.routeStations![indexPath.row].departureTime
 		
 		cell.trainStatus = trainRoute!.routeStations![indexPath.row].trainWithStationStatus
+		cell.delayTime = train!.delayTime
 		
 		return cell
 	}

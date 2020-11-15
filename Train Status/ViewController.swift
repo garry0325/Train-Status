@@ -379,7 +379,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	func configureAdBanner() {
-		let adSize = (Int.random(in: 0...3) == 3) ? kGADAdSizeLargeBanner:kGADAdSizeBanner
+		let adSize = (Int.random(in: 0...5) == 3) ? kGADAdSizeLargeBanner:kGADAdSizeBanner
 		
 		adBannerView = GADBannerView(adSize: adSize)
 		
@@ -388,7 +388,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		view.addConstraints([NSLayoutConstraint(item: adBannerView!, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0), NSLayoutConstraint(item: adBannerView!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0)])
 		self.adBannerView.isHidden = true
 		adBannerView.delegate = self
-		adBannerView.adUnitID = "ca-app-pub-5814041924860954/6593980317"
+		adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
 		//#warning("test banner id NOTICE THE NUMBERS BEFORE SLASH")
 		adBannerView.rootViewController = self
 		

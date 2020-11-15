@@ -21,6 +21,7 @@ class RouteDetailTableViewCell: UITableViewCell {
 			currentStationIndicatorView.isHidden = !isCurrentStation
 			stationNameLabel.font = isCurrentStation ? UIFont.systemFont(ofSize: 20.0, weight: .bold):UIFont.systemFont(ofSize: 17.0, weight: .regular)
 			departTimeLabel.font = isCurrentStation ? UIFont.systemFont(ofSize: 19.0, weight: .bold):UIFont.systemFont(ofSize: 17.0, weight: .regular)
+			delayTimeLabel.isHidden = !isCurrentStation
 		}
 	}
 	var isDepartureStation = false {
@@ -36,6 +37,18 @@ class RouteDetailTableViewCell: UITableViewCell {
 	var departTime = "" {
 		didSet {
 			departTimeLabel.text = departTime
+		}
+	}
+	var delayTime = 0 {
+		didSet {
+			if(delayTime > 0) {
+				delayTimeLabel.text = "晚\(delayTime)分"
+				
+				delayTimeLabel.frame = NSString(string: delayTimeLabel.text!).boundingRect(with: CGSize(width: 78.0, height: delayTimeLabel.frame.height), options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 12)], context: nil)
+			}
+			else {
+				delayTimeLabel.text = ""
+			}
 		}
 	}
 	var trainStatus: TrainLivePosition.Status = .Departed {
@@ -58,6 +71,7 @@ class RouteDetailTableViewCell: UITableViewCell {
 	@IBOutlet var stationNodeView: UIImageView!
 	@IBOutlet var currentStationIndicatorView: UIImageView!
 	@IBOutlet var departTimeLabel: UILabel!
+	@IBOutlet var delayTimeLabel: UILabel!
 	@IBOutlet var trainAtStationImage: UIImageView!
 	@IBOutlet var trainDepartStationImage: UIImageView!
 	@IBOutlet var routeLineUp: UIImageView!

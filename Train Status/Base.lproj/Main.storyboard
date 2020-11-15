@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -402,6 +402,21 @@
                                                     </constraints>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="10"/>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晚5分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nv7-71-NyL">
+                                                    <rect key="frame" x="16.5" y="21.5" width="55" height="14.5"/>
+                                                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="0JR-TB-BPH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -418,10 +433,12 @@
                                                 <constraint firstItem="bmh-8o-mPR" firstAttribute="centerX" secondItem="Zci-ZJ-7GI" secondAttribute="centerX" id="U7e-vK-B0R"/>
                                                 <constraint firstAttribute="bottom" secondItem="ca7-bj-IG1" secondAttribute="bottom" id="YHg-cI-Twa"/>
                                                 <constraint firstItem="k9f-hz-naS" firstAttribute="centerY" secondItem="Zci-ZJ-7GI" secondAttribute="centerY" id="ZRP-OE-Xfa"/>
+                                                <constraint firstItem="Nv7-71-NyL" firstAttribute="top" secondItem="euq-Kn-XWK" secondAttribute="bottom" constant="-2" id="htL-w0-kot"/>
                                                 <constraint firstItem="bmh-8o-mPR" firstAttribute="centerY" secondItem="Zci-ZJ-7GI" secondAttribute="centerY" id="l0v-zQ-et3"/>
                                                 <constraint firstItem="ca7-bj-IG1" firstAttribute="centerX" secondItem="Zci-ZJ-7GI" secondAttribute="centerX" id="lor-yf-iTm"/>
                                                 <constraint firstItem="pSr-9w-sL2" firstAttribute="centerY" secondItem="Zci-ZJ-7GI" secondAttribute="centerY" id="ncJ-EO-ltf"/>
                                                 <constraint firstItem="pSr-9w-sL2" firstAttribute="trailing" secondItem="Zci-ZJ-7GI" secondAttribute="leading" constant="9" id="oNl-aX-AXy"/>
+                                                <constraint firstItem="Nv7-71-NyL" firstAttribute="centerX" secondItem="euq-Kn-XWK" secondAttribute="centerX" id="p0U-hc-Fyd"/>
                                                 <constraint firstItem="Zci-ZJ-7GI" firstAttribute="leading" secondItem="euq-Kn-XWK" secondAttribute="trailing" constant="5" id="wiM-hz-Y2f"/>
                                                 <constraint firstItem="GYb-Hv-iWW" firstAttribute="centerX" secondItem="Zci-ZJ-7GI" secondAttribute="centerX" id="x5O-Lb-N2q"/>
                                                 <constraint firstItem="170-L6-S6h" firstAttribute="top" secondItem="pSr-9w-sL2" secondAttribute="bottom" constant="-10" id="x9k-r2-Aq9"/>
@@ -430,6 +447,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="currentStationIndicatorView" destination="Zci-ZJ-7GI" id="m4i-64-yAg"/>
+                                            <outlet property="delayTimeLabel" destination="Nv7-71-NyL" id="REy-lA-t1r"/>
                                             <outlet property="departTimeLabel" destination="euq-Kn-XWK" id="vct-w7-QDF"/>
                                             <outlet property="routeLineBottom" destination="ca7-bj-IG1" id="shJ-GL-wVA"/>
                                             <outlet property="routeLineUp" destination="GYb-Hv-iWW" id="e6x-uK-cgL"/>
