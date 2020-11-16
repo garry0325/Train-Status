@@ -39,7 +39,7 @@ class RouteDetailViewController: UIViewController {
 	
 	var autoRefreshTimer: Timer?
 	let semaphore = DispatchSemaphore(value: 0)
-	var didConstructSequence = false
+	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,6 @@ class RouteDetailViewController: UIViewController {
 			self.trainRoute = MOTCQuery.shared.queryTrainRoute(trainNumber: self.train!.trainNumber)
 			
 			self.semaphore.signal()
-			self.didConstructSequence = true
 			
 			for i in 0..<self.trainRoute!.routeStations!.count {
 				if(self.trainRoute!.routeStations![i].stationId == self.currentStationCode) {
@@ -109,10 +108,7 @@ class RouteDetailViewController: UIViewController {
 	@objc func autoRefresh() {
 		DispatchQueue.global(qos: .background).async {
 			self.trainLivePosition = MOTCQuery.shared.queryRealTimeTrainPosition(trainNumber: self.train!.trainNumber)
-			
-			if(!self.didConstructSequence) {
-				self.semaphore.wait()
-			}
+			self.semaphore.wait()
 			
 			// exclude the case when train is not even departed
 			if(self.trainLivePosition?.stationName != "none") {
@@ -129,6 +125,7 @@ class RouteDetailViewController: UIViewController {
 			DispatchQueue.main.async {
 				self.routeDetailTableView.reloadData()
 			}
+			self.semaphore.signal()
 		}
 	}
 }
