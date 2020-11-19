@@ -27,6 +27,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: code optimization
 	// TODO: eliminate warnings
 	// TODO: AdMob
+	// TODO: Handle bug when network error returns nil in queryTrainRoute
 	
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 	var lastViewStation: Array<Record>?
