@@ -89,7 +89,8 @@ class TrainBoardCell: UITableViewCell {
 	override func awakeFromNib() {
 		
 		super.awakeFromNib()
-		// Initialization code
+		
+		timeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 19.0, weight: .bold)
 	}
 	
 	override func setSelected(_ selected: Bool, animated: Bool) {
