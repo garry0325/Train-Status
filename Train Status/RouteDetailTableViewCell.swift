@@ -20,7 +20,7 @@ class RouteDetailTableViewCell: UITableViewCell {
 		didSet {
 			currentStationIndicatorView.isHidden = !isCurrentStation
 			stationNameLabel.font = isCurrentStation ? UIFont.systemFont(ofSize: 20.0, weight: .bold):UIFont.systemFont(ofSize: 17.0, weight: .regular)
-			departTimeLabel.font = isCurrentStation ? UIFont.systemFont(ofSize: 19.0, weight: .bold):UIFont.systemFont(ofSize: 17.0, weight: .regular)
+			departTimeLabel.font = isCurrentStation ? UIFont.monospacedDigitSystemFont(ofSize: 19.0, weight: .bold):UIFont.monospacedDigitSystemFont(ofSize: 17.0, weight: .regular)
 			delayTimeLabel.isHidden = !isCurrentStation
 		}
 	}
