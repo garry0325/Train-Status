@@ -26,7 +26,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: read terms and conditions
 	// TODO: code optimization
 	// TODO: eliminate warnings
-	// TODO: AdMob
 	// TODO: Handle bug when network error returns nil in queryTrainRoute
 	
 	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -389,7 +388,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		view.addConstraints([NSLayoutConstraint(item: adBannerView!, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0), NSLayoutConstraint(item: adBannerView!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0)])
 		self.adBannerView.isHidden = true
 		adBannerView.delegate = self
-		adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		adBannerView.adUnitID = "ca-app-pub-5814041924860954/6593980317"
 		#warning("test banner id NOTICE THE NUMBERS BEFORE SLASH")
 		adBannerView.rootViewController = self
 		
