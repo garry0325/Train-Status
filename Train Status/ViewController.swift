@@ -23,7 +23,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: first time prompt + warnings +
 	// TODO: use core data +
 	// TODO: optimize class MOTCQuery so no need to create instance every time +
-	// TODO: read terms and conditions
 	// TODO: code optimization
 	// TODO: eliminate warnings
 	// TODO: Handle bug when network error returns nil in queryTrainRoute
@@ -61,6 +60,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	var informationButtonToAdBannerLayout: NSLayoutConstraint?
 	
 	var adBannerView: GADBannerView!
+	var headerAdBannerView: GADBannerView!
 	var displayAd = true
 	var needAdData: Array<Ad> = []
 	
@@ -102,8 +102,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	func initialSetup() {
 		if(displayAd) {
+			self.headerAdBannerView.frame = CGRect(x: 0, y: 0, width: headerAdBannerView.frame.width, height: 60.0)
 			self.adBannerView.load(GADRequest())
+			self.headerAdBannerView.load(GADRequest())
 		}
+		
 		
 		dismissActivityIndicator()
 		
@@ -388,15 +391,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		view.addConstraints([NSLayoutConstraint(item: adBannerView!, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0), NSLayoutConstraint(item: adBannerView!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0)])
 		self.adBannerView.isHidden = true
 		adBannerView.delegate = self
-		adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+		adBannerView.adUnitID = "ca-app-pub-5814041924860954/6593980317"
 		#warning("test banner id NOTICE THE NUMBERS BEFORE SLASH")
 		adBannerView.rootViewController = self
 		
 		informationButtonToAdBannerLayout = NSLayoutConstraint(item: informationButton!, attribute: .bottom, relatedBy: .equal, toItem: adBannerView, attribute: .top, multiplier: 1.0, constant: -15.0)
 		
 		// my new banner ad id: ca-app-pub-5814041924860954/6593980317
+		// header banner ad id: ca-app-pub-5814041924860954/6968493215
 		// test banner ad id: ca-app-pub-3940256099942544/2934735716
 		// F413ED9C-BBA4-4E3D-803F-84D6789B0B93
+		
+		headerAdBannerView = GADBannerView()
+		boardTableView.tableHeaderView = headerAdBannerView
+		boardTableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: boardTableView.frame.width, height: 0)
+		boardTableView.tableHeaderView?.isHidden = true
+		headerAdBannerView.delegate = self
+		headerAdBannerView.adUnitID = "ca-app-pub-5814041924860954/6968493215"
+		headerAdBannerView.rootViewController = self
 	}
 	
 	@objc func removeAdSuccess() {
@@ -550,17 +562,28 @@ extension ViewController: GADBannerViewDelegate {
 	}
 	
 	func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-		print("Ad loaded successfully")
-		self.adBannerView.isHidden = false
 		
-		informationButtonToSafeAreaLayout.isActive = false
-		informationButtonToAdBannerLayout?.isActive = true
+		if(bannerView == self.adBannerView) {
+			print("Banner Ad loaded successfully")
+			self.adBannerView.isHidden = false
+			
+			informationButtonToSafeAreaLayout.isActive = false
+			informationButtonToAdBannerLayout?.isActive = true
+		} else {
+			print("Header Ad loaded successfully")
+			boardTableView.tableHeaderView?.isHidden = false
+		}
 	}
 	
 	func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-		print("Ad failed to load. \(error.localizedDescription) code: \(error.code)")
 		
-		informationButtonToSafeAreaLayout.isActive = true
-		informationButtonToAdBannerLayout?.isActive = false
+		if(bannerView == self.adBannerView) {
+			print("Banner Ad failed to load. \(error.localizedDescription) code: \(error.code)")
+			informationButtonToSafeAreaLayout.isActive = true
+			informationButtonToAdBannerLayout?.isActive = false
+		} else {
+			print("Header Ad failed to load. \(error.localizedDescription) code: \(error.code)")
+			boardTableView.tableHeaderView?.isHidden = true
+		}
 	}
 }
