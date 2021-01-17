@@ -75,6 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		
 		boardTableView.delegate = self
 		boardTableView.dataSource = self
+		boardTableView.contentInset = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 150.0, right: 0.0)
 		
 		segmentControl.selectedSegmentIndex = 2
 		segmentControl.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
@@ -391,7 +392,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		view.addConstraints([NSLayoutConstraint(item: adBannerView!, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0), NSLayoutConstraint(item: adBannerView!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0)])
 		self.adBannerView.isHidden = true
 		adBannerView.delegate = self
-		adBannerView.adUnitID = "ca-app-pub-5814041924860954/6593980317"
+		adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
 		#warning("test banner id NOTICE THE NUMBERS BEFORE SLASH")
 		adBannerView.rootViewController = self
 		
@@ -407,7 +408,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		boardTableView.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: boardTableView.frame.width, height: 0)
 		boardTableView.tableHeaderView?.isHidden = true
 		headerAdBannerView.delegate = self
-		headerAdBannerView.adUnitID = "ca-app-pub-5814041924860954/6968493215"
+		headerAdBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
 		headerAdBannerView.rootViewController = self
 	}
 	
@@ -454,7 +455,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			return 0
 		}
 		
-		return boardTrains.count + 2	// increase the rows in order to compensate hiding on iPhone X+
+		return boardTrains.count	// increase the rows in order to compensate hiding on iPhone X+
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
