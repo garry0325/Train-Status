@@ -147,7 +147,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			queryMOTC()
 		}
 		else {
-			presentActivityIndicator()
+			//presentActivityIndicator()
 			locationManager.startUpdatingLocation()
 			isUpdatingLocation = true
 		}
@@ -267,6 +267,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		else {
 			isUpdatingLocation = false
 			locationButton.tintColor = .gray
+			
 			print("Location permission not granted")
 			promptLocationServicePermission()
 		}
