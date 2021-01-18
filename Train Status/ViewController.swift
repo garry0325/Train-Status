@@ -75,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		
 		boardTableView.delegate = self
 		boardTableView.dataSource = self
-		boardTableView.contentInset = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 150.0, right: 0.0)
+		boardTableView.contentInset = UIEdgeInsets(top: 15.0, left: 0.0, bottom: 150.0, right: 0.0)
 		
 		segmentControl.selectedSegmentIndex = 2
 		segmentControl.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
