@@ -18,6 +18,10 @@ class MOTCQuery {
 	
 	let appID = "1baabcfdb12a4d88bd4b19c7a2c3fd23"
 	let appKey = "4hYdvDltMul8kJTyx2CbciPeM1k"
+    
+    let clientID = "garry0325-f0ead998-5bf1-4b4c"
+    let clientSecret = "ac2c9534-f696-4102-be3a-efbcee21475e"
+    var token = ""
 	
 	var authDateFormatter = DateFormatter()
 	var authTimeString: String!

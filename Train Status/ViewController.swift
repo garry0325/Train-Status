@@ -88,6 +88,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		configureAdBanner()
 		
 		checkAdRemoval()
+        
+        checkAPI()
 		
 		if(checkInitial()) {
 			presentWelcomeWarning()
@@ -449,6 +451,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			displayAd = true
 		}
 	}
+    
+    func checkAPI() {
+        do {
+            let APIs = try context.fetch(API.fetchRequest()) as! [API]
+            
+            if(APIs.count > 0) {
+                print("\(APIs.count) token saved")
+                MOTCQuery.shared.token = APIs[0].token ?? ""
+                print("Retrieved token: \(MOTCQuery.shared.token)")
+            } else {
+                MOTCQuery.shared.refreshToken()
+                let newAPI = API(context: self.context)
+                newAPI.token = MOTCQuery.shared.token
+                try self.context.save()
+                
+                print("New token: \(MOTCQuery.shared.token)")
+            }
+        } catch {
+            print("Error fetching or storing API")
+        }
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
