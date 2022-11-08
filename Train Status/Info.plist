@@ -27,7 +27,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>找到離你最近的車站</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string></string>
+	<string>Google 需要 IDFA 以投放更有效的廣告</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
