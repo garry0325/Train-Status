@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Ad" representedClassName="Ad" syncable="YES" codeGenerationType="class">
         <attribute name="needAd" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="API" representedClassName="API" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="token" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Initial" representedClassName="Initial" syncable="YES">
         <attribute name="notInitialUse" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -9,9 +13,4 @@
     <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
         <attribute name="lastViewStation" optional="YES" attributeType="String"/>
     </entity>
-    <elements>
-        <element name="Initial" positionX="-63" positionY="-18" width="128" height="58"/>
-        <element name="Record" positionX="-63" positionY="-9" width="128" height="58"/>
-        <element name="Ad" positionX="-45" positionY="9" width="128" height="58"/>
-    </elements>
 </model>

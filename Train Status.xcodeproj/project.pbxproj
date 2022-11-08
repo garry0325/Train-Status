@@ -34,8 +34,8 @@
 		03B692625D4FBE53057EDE08 /* Pods_Train_Status.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Train_Status.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Status.release.xcconfig"; path = "Target Support Files/Pods-Train Status/Pods-Train Status.release.xcconfig"; sourceTree = "<group>"; };
 		C20AE75625456C1D0069DA50 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataClass.swift"; path = "/Users/garry0325/Downloads/Swift/Train Status/Train Status/Initial+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataProperties.swift"; path = "/Users/garry0325/Downloads/Swift/Train Status/Train Status/Initial+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataClass.swift"; path = "/Users/sinica/Documents/Swift/Train-Status/Train-Status/Train Status/Initial+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataProperties.swift"; path = "/Users/sinica/Documents/Swift/Train-Status/Train-Status/Train Status/Initial+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		C20AE7682545CA170069DA50 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		C210ACDE255D214000EE8962 /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		C210ACE1255D218700EE8962 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
@@ -413,12 +413,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3WYLUPPDAG;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "Train Status/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "Garry.Train-Status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -433,12 +434,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3WYLUPPDAG;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "Train Status/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "Garry.Train-Status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -28,7 +28,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// TODO: Handle bug when network error returns nil in queryTrainRoute
 	// TODO: no station name showing when initial launch and location permission not granted
 	
-	let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 	var lastViewStation: Array<Record>?
 	
 	var locationManager = CLLocationManager()
@@ -321,14 +320,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	func updateLastViewStation() {
 		var record: Record?
 		if(lastViewStation == nil || lastViewStation!.count == 0) {
-			record = Record(context: self.context)
+			record = Record(context: context)
 		}
 		else {
 			record = lastViewStation![lastViewStation!.count - 1]
 		}
 		record?.lastViewStation = self.currentStationCode
 		do {
-			try self.context.save()
+			try context.save()
 		}
 		catch {
 			print("Error saving lastViewStation")
@@ -358,10 +357,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		DispatchQueue.main.async {
 			let welcomeAlert = UIAlertController(title: "溫馨提示", message: "請使用者以參考表定發車時間為主，勿因列車顯示延誤而更動行程。\n資料來源：交通部PTX平臺", preferredStyle: .alert)
 			let okAction = UIAlertAction(title: "我知道了", style: .default, handler: {_ in
-				let newInitial = Initial(context: self.context)
+				let newInitial = Initial(context: context)
 				newInitial.notInitialUse = true
 				do {
-					try self.context.save()
+					try context.save()
 				} catch {
 					print("Error saving Initial")
 				}
@@ -423,7 +422,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		do {
 			needAdData = try context.fetch(Ad.fetchRequest()) as! [Ad]
 			needAdData[needAdData.count - 1].needAd = !displayAd
-			try self.context.save()
+			try context.save()
 		}
 		catch {
 			print("Error saving context remove ad")
@@ -439,9 +438,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			}
 			else {
 				if(needAdData.count == 0) {
-					let ad = Ad(context: self.context)
+					let ad = Ad(context: context)
 					ad.needAd = true
-					try self.context.save()
+					try context.save()
 				}
 				print("Need Ad")
 				displayAd = true
@@ -455,16 +454,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func checkAPI() {
         do {
             let APIs = try context.fetch(API.fetchRequest()) as! [API]
+            var refreshTokenRequired = true
             
-            if(APIs.count > 0) {
+            if APIs.count > 0, let savedDate = APIs[APIs.count - 1].date {
                 print("\(APIs.count) token saved")
-                MOTCQuery.shared.token = APIs[0].token ?? ""
-                print("Retrieved token: \(MOTCQuery.shared.token)")
-            } else {
+                
+                let tokenElapsedTime = Date().timeIntervalSince(savedDate)
+                if(tokenElapsedTime < 60 * 60 * 12) { // token not over 6 hours
+                    MOTCQuery.shared.token = APIs[0].token ?? ""
+                    
+                    print("Retrieved token: \(MOTCQuery.shared.token)")
+                    print("Saved date: \(savedDate)")
+                    refreshTokenRequired = false
+                }
+            } else if(APIs.count == 0) {
+                let newAPI = API(context: context)
+                newAPI.token = ""
+                newAPI.date = Date()
+                try context.save()
+            }
+            
+            if(refreshTokenRequired) {
                 MOTCQuery.shared.refreshToken()
-                let newAPI = API(context: self.context)
-                newAPI.token = MOTCQuery.shared.token
-                try self.context.save()
                 
                 print("New token: \(MOTCQuery.shared.token)")
             }

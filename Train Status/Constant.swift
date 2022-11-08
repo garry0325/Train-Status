@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+
+let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
 struct TRA {
 	static let Station =

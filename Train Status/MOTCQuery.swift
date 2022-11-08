@@ -8,6 +8,7 @@
 
 import Foundation
 import CryptoKit
+import UIKit
 
 class MOTCQuery {
 	let furtherestTrainTime: Double = 60 * 60
@@ -15,41 +16,67 @@ class MOTCQuery {
 	let timeoutForResource = 15.0
 	
 	static let shared = MOTCQuery()
-	
-	let appID = "1baabcfdb12a4d88bd4b19c7a2c3fd23"
-	let appKey = "4hYdvDltMul8kJTyx2CbciPeM1k"
     
     let clientID = "garry0325-f0ead998-5bf1-4b4c"
     let clientSecret = "ac2c9534-f696-4102-be3a-efbcee21475e"
     var token = ""
 	
-	var authDateFormatter = DateFormatter()
 	var authTimeString: String!
 	var authorization: String!
 	
 	var urlConfig = URLSessionConfiguration.default
 	
 	init() {
-		authDateFormatter = DateFormatter()
-		authDateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ww zzz"
-		authDateFormatter.locale = Locale(identifier: "en_US")
-		authDateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-		
 		urlConfig.timeoutIntervalForRequest = timeoutForRequest
 		urlConfig.timeoutIntervalForResource = timeoutForResource
 	}
-	
-	func authentication() {
-		//	Prepare authentication for MOTC website
-		self.authTimeString = authDateFormatter.string(from: Date())
-		
-		let signDate = String(format: "x-date: %@", self.authTimeString)
-		let key = SymmetricKey(data: Data(self.appKey.utf8))
-		let hmac = HMAC<SHA256>.authenticationCode(for: Data(signDate.utf8), using: key)
-		let base64HmacString = Data(hmac).base64EncodedString()
-		
-		self.authorization = "hmac username=\"\(self.appID)\", algorithm=\"hmac-sha256\", headers=\"x-date\", signature=\"\(base64HmacString)\""
-	}
+    
+    func refreshToken() {
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        let tokenUrl = URL(string: "https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token")!
+        let data: Data = "grant_type=client_credentials&client_id=\(clientID)&client_secret=\(clientSecret)".data(using: .utf8)!
+        
+        var request = URLRequest(url: tokenUrl)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = data
+        
+        let session = URLSession(configuration: urlConfig)
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                
+                DispatchQueue.main.async {
+                    ErrorAlert.presentErrorAlert(title: "Token錯誤", message: "取得Token時發生錯誤A")
+                }
+            }
+            
+            if let data = data, let response = response as? HTTPURLResponse {
+                print("Token response \(response.statusCode)")
+                do {
+                    let tokenResponse = try JSONSerialization.jsonObject(with: data) as! [String: Any]
+                    self.token = tokenResponse["access_token"] as! String
+                    
+                    // save token
+                    let savedAPI = try context.fetch(API.fetchRequest()) as! [API]
+                    savedAPI[savedAPI.count - 1].token = self.token
+                    savedAPI[savedAPI.count - 1].date = Date()
+                    try context.save()
+                } catch {
+                    print("Error: \(error.localizedDescription)")
+                    
+                    DispatchQueue.main.async {
+                        ErrorAlert.presentErrorAlert(title: "Token錯誤", message: "取得Token時發生錯誤\(response.statusCode)")
+                    }
+                }
+            }
+            
+            semaphore.signal()
+        }
+        task.resume()
+        semaphore.wait()
+    }
 	
 	func queryStationBoard(stationCode: String) -> [Train] {
 		var trainList: [Train] = []
@@ -63,12 +90,11 @@ class MOTCQuery {
 		formatter2.dateFormat = "yyyy-MM-dd"
 		formatter2.timeZone = TimeZone(abbreviation: "UTC+8")
 		
-		authentication()
-		
-		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v2/Rail/TRA/LiveBoard/Station/\(stationCode)?$format=JSON")!
+		let url = URL(string: "https://tdx.transportdata.tw/api/basic/v2/Rail/TRA/LiveBoard/Station/\(stationCode)?$format=JSON")!
 		var request = URLRequest(url: url)
-		request.setValue(authTimeString, forHTTPHeaderField: "x-date")
-		request.setValue(authorization, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(self.token)", forHTTPHeaderField: "Authorization")
 		let session = URLSession(configuration: urlConfig)
 		let task = session.dataTask(with: request) { (data, response, error) in
 			if let error = error {
@@ -157,10 +183,11 @@ class MOTCQuery {
 		}
 		
 		// Due to some specific trains do not show up from the API above, the following API is used to compensate
-		let url2 = URL(string: "https://ptx.transportdata.tw/MOTC/v3/Rail/TRA/DailyStationTimetable/Today/Station/\(stationCode)?$select=Direction%2C%20TimeTables&$format=JSON")!
+		let url2 = URL(string: "https://tdx.transportdata.tw/api/basic/v3/Rail/TRA/DailyStationTimetable/Today/Station/\(stationCode)?$select=Direction%2C%20TimeTables&$format=JSON")!
 		request = URLRequest(url: url2)
-		request.setValue(authTimeString, forHTTPHeaderField: "x-date")	// this line should not be excluded
-		request.setValue(authorization, forHTTPHeaderField: "Authorization")	// this line should not be excluded
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(self.token)", forHTTPHeaderField: "Authorization")
 		let session2 = URLSession(configuration: urlConfig)
 		let task2 = session2.dataTask(with: request) { (data, response, error) in
 			if let error = error {
@@ -261,12 +288,11 @@ class MOTCQuery {
 		var trainRoute: TrainRoute?
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		authentication()
-		
-		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v3/Rail/TRA/DailyTrainTimetable/Today/TrainNo/\(trainNumber)?$format=JSON")!
+		let url = URL(string: "https://tdx.transportdata.tw/api/basic/v3/Rail/TRA/DailyTrainTimetable/Today/TrainNo/\(trainNumber)?$format=JSON")!
 		var request = URLRequest(url: url)
-		request.setValue(authTimeString, forHTTPHeaderField: "x-date")
-		request.setValue(authorization, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(self.token)", forHTTPHeaderField: "Authorization")
 		let session = URLSession(configuration: urlConfig)
 		let task = session.dataTask(with: request) { (data, response, error) in
 			if let error = error {
@@ -342,12 +368,11 @@ class MOTCQuery {
 		var trainLivePosition: TrainLivePosition?
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		authentication()
-		
-		let url = URL(string: "https://ptx.transportdata.tw/MOTC/v3/Rail/TRA/TrainLiveBoard/TrainNo/\(trainNumber)?$format=JSON")!
+		let url = URL(string: "https://tdx.transportdata.tw/api/basic/v3/Rail/TRA/TrainLiveBoard/TrainNo/\(trainNumber)?$format=JSON")!
 		var request = URLRequest(url: url)
-		request.setValue(authTimeString, forHTTPHeaderField: "x-date")
-		request.setValue(authorization, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(self.token)", forHTTPHeaderField: "Authorization")
 		let session = URLSession(configuration: urlConfig)
 		let task = session.dataTask(with: request) { (data, response, error) in
 			if let error = error {

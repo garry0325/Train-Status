@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardTrain" id="3Ab-Lr-Kvb" customClass="TrainBoardCell" customModule="Train_Status" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Ab-Lr-Kvb" id="dF5-Dx-W9h">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -255,6 +255,29 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRW-4m-5oy">
+                                <rect key="frame" x="359" y="631" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Bes-Ox-XC4"/>
+                                    <constraint firstAttribute="height" constant="40" id="EZz-n9-Iu6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="map.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="medium"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="darkTextColor"/>
@@ -277,6 +300,7 @@
                             <constraint firstItem="KED-3w-VDd" firstAttribute="top" secondItem="HZH-VF-CLi" secondAttribute="bottom" constant="10" id="Rt2-lp-eZr"/>
                             <constraint firstAttribute="trailing" secondItem="azf-WZ-LIj" secondAttribute="trailing" id="U36-ZM-Snd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c8n-cS-oqh" secondAttribute="trailing" constant="16" id="Ush-UB-zIo"/>
+                            <constraint firstItem="1Rn-g0-OAt" firstAttribute="top" secondItem="tRW-4m-5oy" secondAttribute="bottom" constant="10" id="WxG-8Y-87M"/>
                             <constraint firstItem="Y68-yl-rDK" firstAttribute="centerY" secondItem="HZH-VF-CLi" secondAttribute="centerY" id="XRO-zW-Rgb"/>
                             <constraint firstItem="IjC-Zc-Ktv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.5" id="Xpr-wb-Roy"/>
                             <constraint firstItem="bFd-Cc-pAc" firstAttribute="centerY" secondItem="ujh-g8-wcB" secondAttribute="centerY" id="YMX-6u-vot"/>
@@ -289,6 +313,7 @@
                             <constraint firstItem="azf-WZ-LIj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lsz-JJ-6PV"/>
                             <constraint firstItem="ksw-pe-xuD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nAz-B1-sQ3"/>
                             <constraint firstItem="azf-WZ-LIj" firstAttribute="top" secondItem="HZH-VF-CLi" secondAttribute="bottom" constant="40" id="o21-uJ-ZkH"/>
+                            <constraint firstItem="tRW-4m-5oy" firstAttribute="centerX" secondItem="1Rn-g0-OAt" secondAttribute="centerX" id="oqa-Aj-dhU"/>
                             <constraint firstItem="DEX-Ek-Fl2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pQ3-UN-XY1"/>
                             <constraint firstItem="azf-WZ-LIj" firstAttribute="top" secondItem="DEX-Ek-Fl2" secondAttribute="bottom" id="uuH-0S-fo4"/>
                             <constraint firstItem="ujh-g8-wcB" firstAttribute="centerY" secondItem="dDp-At-x1b" secondAttribute="centerY" id="zPs-52-p4e"/>
@@ -335,7 +360,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StationCell" rowHeight="40" id="93k-dY-Tqf" customClass="RouteDetailTableViewCell" customModule="Train_Status" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="200" height="40"/>
+                                        <rect key="frame" x="0.0" y="50" width="200" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="93k-dY-Tqf" id="DiS-rc-P5l">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
@@ -582,7 +607,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Region" id="uwV-H6-c2b" customClass="SelectionCell" customModule="Train_Status" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="100" height="40"/>
+                                        <rect key="frame" x="0.0" y="50" width="100" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uwV-H6-c2b" id="f0z-Mu-bgE">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
@@ -612,7 +637,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Station" id="mZt-Jj-UAP" customClass="SelectionCell" customModule="Train_Status" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="100" height="40"/>
+                                        <rect key="frame" x="0.0" y="50" width="100" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZt-Jj-UAP" id="Rv6-Fp-tj6">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
@@ -892,12 +917,13 @@ Cg
     </scenes>
     <resources>
         <image name="bike" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="disabled" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="gobackward" catalog="system" width="121" height="128"/>
-        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="location.fill" catalog="system" width="128" height="121"/>
-        <image name="tram.fill" catalog="system" width="100" height="128"/>
+        <image name="gobackward" catalog="system" width="119" height="128"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="location.fill" catalog="system" width="128" height="119"/>
+        <image name="map.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="tram.fill" catalog="system" width="101" height="128"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
