@@ -802,11 +802,11 @@
                                 <rect key="frame" x="16" y="0.0" width="318" height="190"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">請使用者以參考表定發車時間為主，勿因列車顯示延誤而更動行程。本服務對於造成任何損害不負法律責任，包括任何疏忽責任。
+                                        <string key="content">請旅客以參考表定發車時間為主，勿因列車顯示延誤而更動行程。本服務對於造成任何損害不負法律責任，包括任何疏忽責任。
 </string>
                                         <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="cellTitle"/>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="PingFangTC-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -817,19 +817,19 @@
 Cg
 </string>
                                         <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="cellTitle"/>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="PingFangTC-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                 <tabStops/>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">本服務提供來自交通部「公共運輸整合資訊流通服務平臺」之台鐵列車到離站動態即時電子看板資料，該資料與台鐵官網的列車動態資料來源一致，但與車站或月台上即時顯示的TIDS看板並非一致，請注意並請勿直接與車站或月台上的TIDS看板進行比對。
+                                        <string key="content">本服務提供來自交通部「運輸資料流通服務平臺」之台鐵列車到離站動態即時電子看板資料，該資料與台鐵官網的列車動態資料來源一致，但與車站或月台上即時顯示的TIDS看板並非一致，請注意並請勿直接與車站或月台上的TIDS看板進行比對。
 </string>
                                         <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="cellTitle"/>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="PingFangTC-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -837,10 +837,10 @@ Cg
                                     </fragment>
                                     <fragment>
                                         <string key="content">
-資料來源：交通部PTX平臺</string>
+資料來源：交通部 運輸資料流通服務平臺 (TDX)</string>
                                         <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="cellTitle"/>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="11" name="PingFangTC-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                 <tabStops/>
                                             </paragraphStyle>
