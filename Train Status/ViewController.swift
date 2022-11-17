@@ -460,7 +460,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 print("\(APIs.count) token saved")
                 
                 let tokenElapsedTime = Date().timeIntervalSince(savedDate)
-                if(tokenElapsedTime < 60 * 60 * 12) { // token not over 6 hours
+                if(tokenElapsedTime < 60 * 60 * 12) { // token not over 12 hours
                     MOTCQuery.shared.token = APIs[0].token ?? ""
                     
                     print("Retrieved token: \(MOTCQuery.shared.token)")
