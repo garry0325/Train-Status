@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03FCC69A2A2B079400425FB0 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 03FCC6992A2B079400425FB0 /* GoogleMobileAds */; };
 		C20AE75725456C1D0069DA50 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75625456C1D0069DA50 /* AboutViewController.swift */; };
 		C20AE75C2545BFFA0069DA50 /* Initial+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */; };
 		C20AE75D2545BFFA0069DA50 /* Initial+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */; };
@@ -27,12 +28,9 @@
 		C2740F632419F8DC00F97C13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2740F612419F8DC00F97C13 /* LaunchScreen.storyboard */; };
 		C2740F6B2419F93200F97C13 /* MOTCQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2740F6A2419F93200F97C13 /* MOTCQuery.swift */; };
 		C2740F70241A0C4800F97C13 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2740F6F241A0C4800F97C13 /* CoreLocation.framework */; };
-		F4E6CAAAD38018B3E41410EE /* Pods_Train_Status.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B692625D4FBE53057EDE08 /* Pods_Train_Status.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03B692625D4FBE53057EDE08 /* Pods_Train_Status.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Train_Status.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Status.release.xcconfig"; path = "Target Support Files/Pods-Train Status/Pods-Train Status.release.xcconfig"; sourceTree = "<group>"; };
 		C20AE75625456C1D0069DA50 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		C20AE75A2545BFFA0069DA50 /* Initial+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataClass.swift"; path = "/Users/sinica/Documents/Swift/Train-Status/Train-Status/Train Status/Initial+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		C20AE75B2545BFFA0069DA50 /* Initial+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Initial+CoreDataProperties.swift"; path = "/Users/sinica/Documents/Swift/Train-Status/Train-Status/Train Status/Initial+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -55,7 +53,6 @@
 		C2740F642419F8DC00F97C13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2740F6A2419F93200F97C13 /* MOTCQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOTCQuery.swift; sourceTree = "<group>"; };
 		C2740F6F241A0C4800F97C13 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		F8C692437237D2995CC09072 /* Pods-Train Status.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Train Status.debug.xcconfig"; path = "Target Support Files/Pods-Train Status/Pods-Train Status.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FCC69A2A2B079400425FB0 /* GoogleMobileAds in Frameworks */,
 				C2740F70241A0C4800F97C13 /* CoreLocation.framework in Frameworks */,
-				F4E6CAAAD38018B3E41410EE /* Pods_Train_Status.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +74,6 @@
 				C2740F522419F8D900F97C13 /* Train Status */,
 				C2740F512419F8D900F97C13 /* Products */,
 				C2740F6E241A0C4800F97C13 /* Frameworks */,
-				F3FF5C26776E8F9AAD6D3A3F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,18 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				C2740F6F241A0C4800F97C13 /* CoreLocation.framework */,
-				03B692625D4FBE53057EDE08 /* Pods_Train_Status.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F3FF5C26776E8F9AAD6D3A3F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F8C692437237D2995CC09072 /* Pods-Train Status.debug.xcconfig */,
-				752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,17 +127,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2740F672419F8DC00F97C13 /* Build configuration list for PBXNativeTarget "Train Status" */;
 			buildPhases = (
-				DA28E9D5906AEEB6CEBFA7CE /* [CP] Check Pods Manifest.lock */,
 				C2740F4C2419F8D900F97C13 /* Sources */,
 				C2740F4D2419F8D900F97C13 /* Frameworks */,
 				C2740F4E2419F8D900F97C13 /* Resources */,
-				A8FA7E045682F7760617D281 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Train Status";
+			packageProductDependencies = (
+				03FCC6992A2B079400425FB0 /* GoogleMobileAds */,
+			);
 			productName = "Train Status";
 			productReference = C2740F502419F8D900F97C13 /* Train Status.app */;
 			productType = "com.apple.product-type.application";
@@ -180,6 +167,9 @@
 				Base,
 			);
 			mainGroup = C2740F472419F8D900F97C13;
+			packageReferences = (
+				03FCC6982A2B079400425FB0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = C2740F512419F8D900F97C13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -201,48 +191,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A8FA7E045682F7760617D281 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Train Status/Pods-Train Status-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Train Status/Pods-Train Status-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Train Status/Pods-Train Status-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DA28E9D5906AEEB6CEBFA7CE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Train Status-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C2740F4C2419F8D900F97C13 /* Sources */ = {
@@ -408,7 +356,6 @@
 		};
 		C2740F682419F8DC00F97C13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8C692437237D2995CC09072 /* Pods-Train Status.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -420,6 +367,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Garry.Train-Status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -429,7 +377,6 @@
 		};
 		C2740F692419F8DC00F97C13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 752B18CB71530185F3601A2E /* Pods-Train Status.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -441,6 +388,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.5;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Garry.Train-Status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -470,6 +418,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		03FCC6982A2B079400425FB0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		03FCC6992A2B079400425FB0 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03FCC6982A2B079400425FB0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C2740F5C2419F8D900F97C13 /* Train_Status.xcdatamodeld */ = {

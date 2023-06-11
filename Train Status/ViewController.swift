@@ -386,7 +386,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	func configureAdBanner() {
-		let adSize = (Int.random(in: 0...5) == 3) ? kGADAdSizeLargeBanner:kGADAdSizeBanner
+		let adSize = (Int.random(in: 0...5) == 3) ? GADAdSizeLargeBanner:GADAdSizeBanner
 		
 		adBannerView = GADBannerView(adSize: adSize)
 		
@@ -612,7 +612,7 @@ extension ViewController: GADBannerViewDelegate {
 		}
 	}
 	
-	func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+	func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: NSError) {
 		
 		if(bannerView == self.adBannerView) {
 			print("Banner Ad failed to load. \(error.localizedDescription) code: \(error.code)")
